@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SecondHome</string>
+    <string name="comecar_1parte">Encontre a casa</string>
+    <string name="comecar_2parte">certa para si!</string>
+    <string name="regista_titulo">Regista-te!</string>
+    <string name="login_titulo">Inicie Sessão!</string>
+    <string name="login">Entrar</string>
+    <string name="password">Palavra-passe</string>
+    <string name="user">Nome de Utilizador</string>
+    <string name="name">Nome Completo</string>
+    <string name="emailOrPhone">Email ou nº de telefone</string>
+    <string name="register">Registar</string>
+    <string name="start">Começar</string>
+    <string name="noAccountQuestion">Não tem conta?</string>
+    <string name="alreadyRegisteredQuestion">Já tens uma conta?</string>
+</resources>
