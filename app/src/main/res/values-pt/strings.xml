@@ -9,9 +9,19 @@
     <string name="password">Palavra-passe</string>
     <string name="user">Nome de Utilizador</string>
     <string name="name">Nome Completo</string>
-    <string name="emailOrPhone">Email ou nº de telefone</string>
+    <string name="contact">Nº de telefone</string>
     <string name="register">Registar</string>
     <string name="start">Começar</string>
     <string name="noAccountQuestion">Não tem conta?</string>
     <string name="alreadyRegisteredQuestion">Já tens uma conta?</string>
+    <string name="password2">Confirme a palavra-passe</string>
+    <string name="birthdayDate">Data de nascimento</string>
+    <string name="errorEmailEmpty">Necessário Email</string>
+    <string name="errorPhoneNumberEmpty">Necessário nº de telefone</string>
+    <string name="errorFullNameEmpty">Necessário nome</string>
+    <string name="errorUsernameEmpty">Necessário nome de utilizador</string>
+    <string name="errorPasswordsEmpty">Palavra-passe não pode ser vazia</string>
+    <string name="errorPasswordsDoNotMatch">Palavra-passe diferente</string>
+    <string name="errorSignUp">Ocorreu um erro, tente novamente</string>
+    <string name="successfulSignUp">Conta criada, realize login</string>
 </resources>

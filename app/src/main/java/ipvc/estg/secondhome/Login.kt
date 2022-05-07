@@ -11,8 +11,8 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        var backButton = findViewById<ImageView>(R.id.backArrow)
-        var registerButton = findViewById<TextView>(R.id.registerBlue)
+        val backButton = findViewById<ImageView>(R.id.backArrow)
+        val registerButton = findViewById<TextView>(R.id.registerBlue)
 
         backButton.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
