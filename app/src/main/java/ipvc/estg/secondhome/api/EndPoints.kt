@@ -1,6 +1,7 @@
 package ipvc.estg.secondhome.api
 
 import ipvc.estg.secondhome.models.DefaultResponse
+import ipvc.estg.secondhome.models.User
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -19,4 +20,11 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("user/login")
+    fun login(
+        @Field("username") username:String,
+        @Field("password") password: String
+    ): Call<User>
 }

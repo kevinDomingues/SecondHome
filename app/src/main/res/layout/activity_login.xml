@@ -49,7 +49,7 @@
                     android:src="@drawable/ic_baseline_person_24" />
 
                 <EditText
-                    android:id="@+id/user_input"
+                    android:id="@+id/user_inputLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#CDCDCD"
@@ -73,9 +73,10 @@
                     android:src="@drawable/ic_baseline_lock_24" />
 
                 <EditText
-                    android:id="@+id/pass_input"
+                    android:id="@+id/pass_inputLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     android:backgroundTint="#CDCDCD"
                     android:hint="@string/password"
                     android:padding="20dp"

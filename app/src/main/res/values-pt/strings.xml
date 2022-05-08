@@ -24,4 +24,5 @@
     <string name="errorPasswordsDoNotMatch">Palavra-passe diferente</string>
     <string name="errorSignUp">Ocorreu um erro, tente novamente</string>
     <string name="successfulSignUp">Conta criada, realize login</string>
+    <string name="successfulLogin">Bem-vindo</string>
 </resources>
