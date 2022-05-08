@@ -8,9 +8,20 @@
     <string name="password">Password</string>
     <string name="user">Username</string>
     <string name="name">Full name</string>
-    <string name="emailOrPhone">Email or phone number</string>
+    <string name="contact">Phone number</string>
     <string name="register">Sign up</string>
     <string name="start">Start</string>
     <string name="noAccountQuestion">No account?</string>
     <string name="alreadyRegisteredQuestion">Already have an account?</string>
+    <string name="password2">Confirm password</string>
+    <string name="birthdayDate">Birthday Date</string>
+    <string name="errorEmailEmpty">Email required</string>
+    <string name="errorPhoneNumberEmpty">Phone number required</string>
+    <string name="errorFullNameEmpty">Name required</string>
+    <string name="errorUsernameEmpty">Username required</string>
+    <string name="errorPasswordsEmpty">Password is empty</string>
+    <string name="errorPasswordsDoNotMatch">Passwords don\'t match</string>
+    <string name="errorSignUp">There was an error, please try again</string>
+    <string name="successfulSignUp">Account Created, you can login now</string>
+    <string name="successfulLogin">Welcome</string>
 </resources>
