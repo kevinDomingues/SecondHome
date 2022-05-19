@@ -40,10 +40,10 @@ class Login : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
-            val username = editUsername.text.toString().trim()
+            val email = editUsername.text.toString().trim()
             val password = editPassword.text.toString().trim()
 
-            if (username.isEmpty()) {
+            if (email.isEmpty()) {
                 editUsername.error = getString(R.string.errorUsernameEmpty)
                 editUsername.requestFocus()
                 return@setOnClickListener
@@ -55,13 +55,13 @@ class Login : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            handleLogin(username, password)
+            handleLogin(email, password)
         }
     }
 
-    fun handleLogin(username: String, password: String) {
+    fun handleLogin(email: String, password: String) {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.login(username, password)
+        val call = request.login(email, password)
 
         call.enqueue(object : Callback<User> {
             override fun onResponse(
@@ -76,15 +76,20 @@ class Login : AppCompatActivity() {
                     editor.putString("email", c.email)
                     editor.putInt("contact", c.contact)
                     editor.putString("token", c.token)
-                    editor.putString("birthdayDate", c.birthdayDate.toString())
+                   editor.putString("birthdayDate", c.birthdayDate)
                     editor.commit()
-
                     Toast.makeText(
                         this@Login,
                         getString(R.string.successfulLogin) + ", " + c.name,
                         Toast.LENGTH_SHORT
                     ).show()
-                    val intent = Intent(this@Login, MainPage::class.java)
+//                    Toast.makeText(
+//                        this@Login,
+//                         c.contact,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+
+                    val intent = Intent(this@Login, Update_user::class.java)
                     startActivity(intent)
                 }
             }

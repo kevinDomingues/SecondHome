@@ -114,7 +114,7 @@ class Register : AppCompatActivity() {
         val date = SimpleDateFormat("dd/MM/yyyy").parse(birthDayDate)
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.signUp(username, name, email, password, date, phoneNumber)
+        val call = request.signUp(username, name, email, password, birthDayDate, phoneNumber)
         
         call.enqueue(object: Callback<DefaultResponse> {
             override fun onResponse(

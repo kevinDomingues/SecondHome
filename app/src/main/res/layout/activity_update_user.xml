@@ -54,45 +54,45 @@
                     android:id="@+id/email_inputUpd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#CDCDCD"
                     android:hint="Email"
                     android:padding="20dp"
                     android:textAlignment="center"
-                    android:textColorHint="#CDCDCD"
-                    android:backgroundTint="#CDCDCD"/>
+                    android:textColorHint="#CDCDCD" />
 
                 <EditText
                     android:id="@+id/tlm_inputUpd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/email_inputUpd"
-                    android:inputType="number"
+                    android:backgroundTint="#CDCDCD"
                     android:hint="@string/contact"
+                    android:inputType="number"
                     android:padding="20dp"
                     android:textAlignment="center"
-                    android:textColorHint="#CDCDCD"
-                    android:backgroundTint="#CDCDCD"/>
+                    android:textColorHint="#CDCDCD" />
 
                 <EditText
                     android:id="@+id/name_inputUpd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tlm_inputUpd"
+                    android:backgroundTint="#CDCDCD"
                     android:hint="@string/name"
                     android:padding="20dp"
                     android:textAlignment="center"
-                    android:textColorHint="#CDCDCD"
-                    android:backgroundTint="#CDCDCD" />
+                    android:textColorHint="#CDCDCD" />
 
                 <EditText
                     android:id="@+id/user_inputUpd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/name_inputUpd"
+                    android:backgroundTint="#CDCDCD"
                     android:hint="@string/user"
                     android:padding="20dp"
                     android:textAlignment="center"
-                    android:textColorHint="#CDCDCD"
-                    android:backgroundTint="#CDCDCD" />
+                    android:textColorHint="#CDCDCD" />
 
                 <EditText
                     android:id="@+id/birthdayDateUpd"
@@ -107,47 +107,46 @@
                     android:textAlignment="center"
                     android:textColorHint="#CDCDCD" />
 
-                    <Button
-                        android:id="@+id/birthdayButtonUpd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@+id/user_inputUpd"
-                        android:drawableTop="@drawable/ic_baseline_calendar_today_24"
-                        android:background="@android:color/transparent" />
-
-
-                <EditText
-                    android:id="@+id/pass_inputUpd"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/birthdayButtonUpd"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/birthdayDateUpd"
-                    android:backgroundTint="#CDCDCD"
-                    android:inputType="textPassword"
-                    android:hint="@string/password"
-                    android:padding="20dp"
-                    android:textAlignment="center"
-                    android:textColorHint="#CDCDCD" />
+                    android:layout_below="@+id/user_inputUpd"
+                    android:layout_alignParentRight="true"
+                    android:background="@android:color/transparent"
+                    android:drawableTop="@drawable/ic_baseline_calendar_today_24" />
 
-                <EditText
-                    android:id="@+id/pass_input2Upd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/pass_inputUpd"
-                    android:backgroundTint="#CDCDCD"
-                    android:inputType="textPassword"
-                    android:hint="@string/password2"
-                    android:padding="20dp"
-                    android:textAlignment="center"
-                    android:textColorHint="#CDCDCD" />
+
+<!--                <EditText-->
+<!--                    android:id="@+id/pass_inputUpd"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/birthdayDateUpd"-->
+<!--                    android:backgroundTint="#CDCDCD"-->
+<!--                    android:hint="@string/password"-->
+<!--                    android:inputType="textPassword"-->
+<!--                    android:padding="20dp"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColorHint="#CDCDCD" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/pass_input2Upd"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/pass_inputUpd"-->
+<!--                    android:backgroundTint="#CDCDCD"-->
+<!--                    android:hint="@string/password2"-->
+<!--                    android:inputType="textPassword"-->
+<!--                    android:padding="20dp"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColorHint="#CDCDCD" />-->
 
 
                 <Button
                     android:id="@+id/btnSignUpUpd"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pass_inputUpd"
-                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/birthdayButtonUpd"
                     android:layout_marginTop="100dp"
                     android:backgroundTint="#FF8D69"
                     android:text="@string/update" />
@@ -162,7 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/alreadyRegisteredQuestion"
-                        android:textColor="@color/lightGray"/>
+                        android:textColor="@color/lightGray" />
 
                     <TextView
                         android:id="@+id/loginBlueUpd"
@@ -170,7 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5sp"
                         android:text="@string/login"
-                        android:textColor="@color/lighBlue"/>
+                        android:textColor="@color/lighBlue" />
 
                 </LinearLayout>
 

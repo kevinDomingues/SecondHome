@@ -18,7 +18,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
+
 lateinit var sharedPreferences: SharedPreferences
+
 class Update_user : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,20 +36,29 @@ class Update_user : AppCompatActivity() {
         val editPhoneNumber = findViewById<EditText>(R.id.tlm_inputUpd)
         val editName = findViewById<EditText>(R.id.name_inputUpd)
         val editUsername = findViewById<EditText>(R.id.user_inputUpd)
-        val editPassword = findViewById<EditText>(R.id.pass_inputUpd)
-        val editPassword2 = findViewById<EditText>(R.id.pass_input2Upd)
+//        val editPassword = findViewById<EditText>(R.id.pass_inputUpd)
+//        val editPassword2 = findViewById<EditText>(R.id.pass_input2Upd)
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         birthDayText.setText("" + day + "/" + month + "/" + year)
-
-        editEmail.setText(sharedPreferences.getString("email","defaultName"))
-        editUsername.setText(sharedPreferences.getString("username","defaultName"))
-        editName.setText(sharedPreferences.getString("name","defaultName"))
-        editPhoneNumber.setText(sharedPreferences.getInt("contact",0))
-        birthDayText.setText(sharedPreferences.getString("birthdayDate","0"))
+        val email = sharedPreferences.getString("email", "defaultName");
+        val username = sharedPreferences.getString("username", "defaultName");
+        val name = sharedPreferences.getString("name", "defaultName");
+//      val contact = sharedPreferences.getInt("contact",0);
+//        Toast.makeText(
+//            this@Update_user,
+//            contact,
+//            Toast.LENGTH_SHORT
+//        ).show()
+        val birthdayDate = sharedPreferences.getString("birthdayDate", "defaultName");
+        editEmail.setText(email);
+        editUsername.setText(username)
+        editName.setText(name)
+//       editPhoneNumber.setText(contact)
+        birthDayText.setText(birthdayDate)
 
         backButton.setOnClickListener {
             val intent = Intent(this, Login::class.java)
@@ -78,8 +89,8 @@ class Update_user : AppCompatActivity() {
             val name = editName.text.toString().trim()
             val username = editUsername.text.toString().trim()
             val birthdayDate = birthDayText.text.toString().trim()
-            val password = editPassword.text.toString().trim()
-            val password2 = editPassword2.text.toString().trim()
+//            val password = editPassword.text.toString().trim()
+//            val password2 = editPassword2.text.toString().trim()
 
             if (email.isEmpty()) {
                 editEmail.error = getString(R.string.errorEmailEmpty)
@@ -105,45 +116,52 @@ class Update_user : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (password.isEmpty()) {
-                editPassword.error = getString(R.string.errorPasswordsEmpty)
-                editPassword.requestFocus()
-                return@setOnClickListener
-            }
+//            if (password.isEmpty()) {
+//                editPassword.error = getString(R.string.errorPasswordsEmpty)
+//                editPassword.requestFocus()
+//                return@setOnClickListener
+//            }
+//
+//            if (password2.isEmpty()) {
+//                editPassword2.error = getString(R.string.errorPasswordsEmpty)
+//                editPassword2.requestFocus()
+//                return@setOnClickListener
+//            }
+//
+//            if (password != password2) {
+//                editPassword2.error = getString(R.string.errorPasswordsDoNotMatch)
+//                editPassword.requestFocus()
+//                return@setOnClickListener
+//            }
 
-            if (password2.isEmpty()) {
-                editPassword2.error = getString(R.string.errorPasswordsEmpty)
-                editPassword2.requestFocus()
-                return@setOnClickListener
-            }
-
-            if (password != password2) {
-                editPassword2.error = getString(R.string.errorPasswordsDoNotMatch)
-                editPassword.requestFocus()
-                return@setOnClickListener
-            }
-
-            updateUser(email, name, username, birthdayDate,  contact.toInt() );
+            updateUser(email, name, username, birthdayDate, contact.toInt());
         }
 
 
     }
 
-    private fun updateUser(email: String,  name: String, username: String, birthDayDate: String, contact: Int) {
+    private fun updateUser(
+        email: String,
+        name: String,
+        username: String,
+        birthDayDate: String,
+        contact: Int
+    ) {
         val date = SimpleDateFormat("dd/MM/yyyy").parse(birthDayDate)
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val token=sharedPreferences.getString("token","0")
-        val call = request.updateUser(token!!,username, name, email,  date, contact)
+        val token = sharedPreferences.getString("token", "0")
+        val call = request.updateUser(token!!, username, name, email, date, contact)
 
-        call.enqueue(object: Callback<DefaultResponse> {
+        call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(
                 call: Call<DefaultResponse>,
                 response: Response<DefaultResponse>
             ) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     val c: DefaultResponse = response.body()!!
-                    Toast.makeText(this@Update_user, R.string.successfullUpdate, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Update_user, R.string.successfullUpdate, Toast.LENGTH_SHORT)
+                        .show()
                     val intent = Intent(this@Update_user, Login::class.java)
                     startActivity(intent)
                 }
