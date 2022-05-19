@@ -22,7 +22,7 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".User_update"
+            android:name=".Update_user"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

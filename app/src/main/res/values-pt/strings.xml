@@ -26,4 +26,5 @@
     <string name="successfulSignUp">Conta criada, realize login</string>
     <string name="successfulLogin">Bem-vindo</string>
     <string name="update">Atualizar</string>
+    <string name="successfullUpdate">Atualizado com sucesso!</string>
 </resources>

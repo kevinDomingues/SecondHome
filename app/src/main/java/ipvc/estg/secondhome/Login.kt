@@ -1,6 +1,8 @@
 package ipvc.estg.secondhome
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -13,11 +15,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 
+lateinit var sharedPreference: SharedPreferences
+
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val backButton = findViewById<ImageView>(R.id.backArrow)
         val registerButton = findViewById<TextView>(R.id.registerBlue)
         val loginButton = findViewById<Button>(R.id.btnLogin)
@@ -25,12 +29,12 @@ class Login : AppCompatActivity() {
         val editUsername = findViewById<EditText>(R.id.user_inputLogin)
         val editPassword = findViewById<EditText>(R.id.pass_inputLogin)
 
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        registerButton.setOnClickListener{
+        registerButton.setOnClickListener {
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
@@ -39,13 +43,13 @@ class Login : AppCompatActivity() {
             val username = editUsername.text.toString().trim()
             val password = editPassword.text.toString().trim()
 
-            if(username.isEmpty()){
+            if (username.isEmpty()) {
                 editUsername.error = getString(R.string.errorUsernameEmpty)
                 editUsername.requestFocus()
                 return@setOnClickListener
             }
 
-            if(password.isEmpty()){
+            if (password.isEmpty()) {
                 editPassword.error = getString(R.string.errorPasswordsEmpty)
                 editPassword.requestFocus()
                 return@setOnClickListener
@@ -55,25 +59,38 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun handleLogin(username: String, password: String){
+    fun handleLogin(username: String, password: String) {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.login(username, password)
 
-        call.enqueue(object: Callback<User> {
+        call.enqueue(object : Callback<User> {
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
             ) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     val c: User = response.body()!!
-                    Toast.makeText(this@Login, getString(R.string.successfulLogin)+", "+c.name, Toast.LENGTH_SHORT).show()
+                    var editor = sharedPreference.edit()
+                    editor.putString("username", c.username)
+                    editor.putString("name", c.name)
+                    editor.putString("email", c.email)
+                    editor.putInt("contact", c.contact)
+                    editor.putString("token", c.token)
+                    editor.putString("birthdayDate", c.birthdayDate.toString())
+                    editor.commit()
+
+                    Toast.makeText(
+                        this@Login,
+                        getString(R.string.successfulLogin) + ", " + c.name,
+                        Toast.LENGTH_SHORT
+                    ).show()
                     val intent = Intent(this@Login, MainPage::class.java)
                     startActivity(intent)
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                Toast.makeText(this@Login, R.string.errorSignUp, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Login,  R.string.errorSignUp , Toast.LENGTH_SHORT).show()
             }
         })
     }
