@@ -3,9 +3,11 @@ package ipvc.estg.secondhome
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.annotation.RequiresApi
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.DefaultResponse
@@ -14,6 +16,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
 
 lateinit var sharedPreference: SharedPreferences
 
@@ -64,6 +69,7 @@ class Login : AppCompatActivity() {
         val call = request.login(email, password)
 
         call.enqueue(object : Callback<User> {
+            @RequiresApi(Build.VERSION_CODES.O)
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
@@ -74,28 +80,26 @@ class Login : AppCompatActivity() {
                     editor.putString("username", c.username)
                     editor.putString("name", c.name)
                     editor.putString("email", c.email)
-                    editor.putInt("contact", c.contact)
+                    editor.putString("contact", c.contact.toString())
                     editor.putString("token", c.token)
-                   editor.putString("birthdayDate", c.birthdayDate)
+                    val dateFormated = LocalDateTime.parse(c.birthdayDate, DateTimeFormatter.ISO_DATE_TIME)
+                    val formattedDate = dateFormated.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                    editor.putString("birthdayDate", formattedDate.toString())
                     editor.commit()
                     Toast.makeText(
                         this@Login,
                         getString(R.string.successfulLogin) + ", " + c.name,
                         Toast.LENGTH_SHORT
                     ).show()
-//                    Toast.makeText(
-//                        this@Login,
-//                         c.contact,
-//                        Toast.LENGTH_SHORT
-//                    ).show()
 
-                    val intent = Intent(this@Login, Update_user::class.java)
+
+                    val intent = Intent(this@Login, MainPage::class.java)
                     startActivity(intent)
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                Toast.makeText(this@Login,  R.string.errorSignUp , Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Login, R.string.errorSignUp, Toast.LENGTH_SHORT).show()
             }
         })
     }

@@ -27,17 +27,14 @@ class Update_user : AppCompatActivity() {
         setContentView(R.layout.activity_update_user)
         sharedPreferences = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val backButton = findViewById<Button>(R.id.backArrowUpd)
-        val loginButton = findViewById<TextView>(R.id.loginBlueUpd)
         val birthDayText = findViewById<EditText>(R.id.birthdayDateUpd)
         val birthDayButton = findViewById<Button>(R.id.birthdayButtonUpd)
-        val signUpButton = findViewById<Button>(R.id.btnSignUpUpd)
+        val updateButton = findViewById<Button>(R.id.btnUpdate)
 
         val editEmail = findViewById<EditText>(R.id.email_inputUpd)
         val editPhoneNumber = findViewById<EditText>(R.id.tlm_inputUpd)
         val editName = findViewById<EditText>(R.id.name_inputUpd)
         val editUsername = findViewById<EditText>(R.id.user_inputUpd)
-//        val editPassword = findViewById<EditText>(R.id.pass_inputUpd)
-//        val editPassword2 = findViewById<EditText>(R.id.pass_input2Upd)
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -47,17 +44,14 @@ class Update_user : AppCompatActivity() {
         val email = sharedPreferences.getString("email", "defaultName");
         val username = sharedPreferences.getString("username", "defaultName");
         val name = sharedPreferences.getString("name", "defaultName");
-//      val contact = sharedPreferences.getInt("contact",0);
-//        Toast.makeText(
-//            this@Update_user,
-//            contact,
-//            Toast.LENGTH_SHORT
-//        ).show()
+      val contact = sharedPreferences.getString("contact","0");
+
+
         val birthdayDate = sharedPreferences.getString("birthdayDate", "defaultName");
         editEmail.setText(email);
         editUsername.setText(username)
         editName.setText(name)
-//       editPhoneNumber.setText(contact)
+       editPhoneNumber.setText(contact,TextView.BufferType.EDITABLE)
         birthDayText.setText(birthdayDate)
 
         backButton.setOnClickListener {
@@ -65,10 +59,7 @@ class Update_user : AppCompatActivity() {
             startActivity(intent)
         }
 
-        loginButton.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
-            startActivity(intent)
-        }
+
 
         birthDayButton.setOnClickListener {
             val dpd = DatePickerDialog(
@@ -83,14 +74,13 @@ class Update_user : AppCompatActivity() {
             dpd.show()
         }
 
-        signUpButton.setOnClickListener {
+        updateButton.setOnClickListener {
             val email = editEmail.text.toString().trim()
             val contact = editPhoneNumber.text.toString().trim()
             val name = editName.text.toString().trim()
             val username = editUsername.text.toString().trim()
             val birthdayDate = birthDayText.text.toString().trim()
-//            val password = editPassword.text.toString().trim()
-//            val password2 = editPassword2.text.toString().trim()
+
 
             if (email.isEmpty()) {
                 editEmail.error = getString(R.string.errorEmailEmpty)
@@ -116,23 +106,6 @@ class Update_user : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-//            if (password.isEmpty()) {
-//                editPassword.error = getString(R.string.errorPasswordsEmpty)
-//                editPassword.requestFocus()
-//                return@setOnClickListener
-//            }
-//
-//            if (password2.isEmpty()) {
-//                editPassword2.error = getString(R.string.errorPasswordsEmpty)
-//                editPassword2.requestFocus()
-//                return@setOnClickListener
-//            }
-//
-//            if (password != password2) {
-//                editPassword2.error = getString(R.string.errorPasswordsDoNotMatch)
-//                editPassword.requestFocus()
-//                return@setOnClickListener
-//            }
 
             updateUser(email, name, username, birthdayDate, contact.toInt());
         }
@@ -162,7 +135,7 @@ class Update_user : AppCompatActivity() {
                     val c: DefaultResponse = response.body()!!
                     Toast.makeText(this@Update_user, R.string.successfullUpdate, Toast.LENGTH_SHORT)
                         .show()
-                    val intent = Intent(this@Update_user, Login::class.java)
+                    val intent = Intent(this@Update_user, MainPage::class.java)
                     startActivity(intent)
                 }
             }

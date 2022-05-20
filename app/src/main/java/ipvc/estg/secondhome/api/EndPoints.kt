@@ -22,12 +22,12 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("user/login")
     fun login(
-        @Field("email") username:String,
+        @Field("username") username:String,
         @Field("password") password: String
     ): Call<User>
 
     @FormUrlEncoded
-    @PATCH("user/update")
+    @PUT("user/update")
     fun updateUser(
         @Field ("token") token:String,
         @Field("username") username:String,
