@@ -27,7 +27,7 @@ interface EndPoints {
     ): Call<User>
 
     @FormUrlEncoded
-    @PATCH("user/update")
+    @PUT("user/update")
     fun updateUser(
         @Field ("token") token:String,
         @Field("username") username:String,

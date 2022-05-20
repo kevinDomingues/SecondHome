@@ -22,11 +22,11 @@
                 android:layout_width="54dp"
                 android:layout_height="58dp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginTop="-10dp"
                 android:layout_marginLeft="20dp"
-                android:drawableTint="#545454"
+                android:layout_marginTop="-10dp"
+                android:background="@android:color/transparent"
                 android:drawableTop="@drawable/ic_baseline_arrow_back_24"
-                android:background="@android:color/transparent"/>
+                android:drawableTint="#545454" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,59 +117,31 @@
                     android:drawableTop="@drawable/ic_baseline_calendar_today_24" />
 
 
-<!--                <EditText-->
-<!--                    android:id="@+id/pass_inputUpd"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@id/birthdayDateUpd"-->
-<!--                    android:backgroundTint="#CDCDCD"-->
-<!--                    android:hint="@string/password"-->
-<!--                    android:inputType="textPassword"-->
-<!--                    android:padding="20dp"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColorHint="#CDCDCD" />-->
-
-<!--                <EditText-->
-<!--                    android:id="@+id/pass_input2Upd"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@id/pass_inputUpd"-->
-<!--                    android:backgroundTint="#CDCDCD"-->
-<!--                    android:hint="@string/password2"-->
-<!--                    android:inputType="textPassword"-->
-<!--                    android:padding="20dp"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColorHint="#CDCDCD" />-->
-
-
                 <Button
-                    android:id="@+id/btnSignUpUpd"
+                    android:id="@+id/btnUpdate"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/birthdayButtonUpd"
-                    android:layout_marginTop="100dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="101dp"
+                    android:layout_marginEnd="21dp"
                     android:backgroundTint="#FF8D69"
                     android:text="@string/update" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/btnSignUpUpd"
+                    android:layout_below="@id/btnUpdate"
                     android:layout_centerHorizontal="true">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/alreadyRegisteredQuestion"
-                        android:textColor="@color/lightGray" />
+                    <!--                    <TextView-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:text="@string/alreadyRegisteredQuestion"-->
+                    <!--                        android:textColor="@color/lightGray" />-->
 
-                    <TextView
-                        android:id="@+id/loginBlueUpd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5sp"
-                        android:text="@string/login"
-                        android:textColor="@color/lighBlue" />
 
                 </LinearLayout>
 
