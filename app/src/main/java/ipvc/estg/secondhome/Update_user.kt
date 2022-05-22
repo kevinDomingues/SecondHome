@@ -4,27 +4,30 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.DefaultResponse
+import ipvc.estg.secondhome.models.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 
 lateinit var sharedPreferences: SharedPreferences
-
 class Update_user : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_user)
+
         sharedPreferences = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val backButton = findViewById<Button>(R.id.backArrowUpd)
         val birthDayText = findViewById<EditText>(R.id.birthdayDateUpd)
@@ -41,18 +44,32 @@ class Update_user : AppCompatActivity() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         birthDayText.setText("" + day + "/" + month + "/" + year)
-        val email = sharedPreferences.getString("email", "defaultName");
-        val username = sharedPreferences.getString("username", "defaultName");
-        val name = sharedPreferences.getString("name", "defaultName");
-      val contact = sharedPreferences.getString("contact","0");
+        val token = sharedPreference.getString("token","0")
 
+        val request = ServiceBuilder.buildService(EndPoints::class.java)
+        val call = request.me(token!!)
 
-        val birthdayDate = sharedPreferences.getString("birthdayDate", "defaultName");
-        editEmail.setText(email);
-        editUsername.setText(username)
-        editName.setText(name)
-       editPhoneNumber.setText(contact,TextView.BufferType.EDITABLE)
-        birthDayText.setText(birthdayDate)
+        call.enqueue(object : Callback<User> {
+            @RequiresApi(Build.VERSION_CODES.O)
+            override fun onResponse(
+                call: Call<User>,
+                response: Response<User>
+            ) {
+                if (response.isSuccessful) {
+                    val c: User = response.body()!!
+                    editEmail.setText(c.email);
+                    editUsername.setText(c.username)
+                    editName.setText(c.name)
+                    editPhoneNumber.setText(c.contact.toString(), TextView.BufferType.EDITABLE)
+                    birthDayText.setText(c.birthdayDate)
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Toast.makeText(this@Update_user, R.string.errorSignUp, Toast.LENGTH_SHORT).show()
+            }
+        })
+
 
         backButton.setOnClickListener {
             val intent = Intent(this, Login::class.java)
@@ -107,7 +124,7 @@ class Update_user : AppCompatActivity() {
             }
 
 
-            updateUser(email, name, username, birthdayDate, contact.toInt());
+            updateUser(email, name, username, birthdayDate, contact.toInt(),token);
         }
 
 
@@ -118,13 +135,15 @@ class Update_user : AppCompatActivity() {
         name: String,
         username: String,
         birthDayDate: String,
-        contact: Int
+        contact: Int,
+        token: String
     ) {
         val date = SimpleDateFormat("dd/MM/yyyy").parse(birthDayDate)
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val token = sharedPreferences.getString("token", "0")
-        val call = request.updateUser(token!!, username, name, email, date, contact)
+//        val token = sharedPreferences.getString("token", "0")
+
+        val call = request.updateUser(token, username, name, email, date, contact)
 
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(

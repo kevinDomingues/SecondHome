@@ -77,14 +77,7 @@ class Login : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val c: User = response.body()!!
                     var editor = sharedPreference.edit()
-                    editor.putString("username", c.username)
-                    editor.putString("name", c.name)
-                    editor.putString("email", c.email)
-                    editor.putString("contact", c.contact.toString())
                     editor.putString("token", c.token)
-                    val dateFormated = LocalDateTime.parse(c.birthdayDate, DateTimeFormatter.ISO_DATE_TIME)
-                    val formattedDate = dateFormated.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-                    editor.putString("birthdayDate", formattedDate.toString())
                     editor.commit()
                     Toast.makeText(
                         this@Login,

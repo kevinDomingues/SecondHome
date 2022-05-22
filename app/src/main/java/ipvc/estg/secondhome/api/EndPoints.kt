@@ -22,7 +22,7 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("user/login")
     fun login(
-        @Field("username") username:String,
+        @Field("email") username:String,
         @Field("password") password: String
     ): Call<User>
 
@@ -36,4 +36,8 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("user/me")
+    fun me(  @Field ("token") token:String,): Call<User>
 }
