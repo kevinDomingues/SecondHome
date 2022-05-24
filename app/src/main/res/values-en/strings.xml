@@ -27,4 +27,9 @@
     <string name="successfulLogin">Welcome</string>
     <string name="update">Update</string>
     <string name="successfullUpdate">"Successfully Updated! "</string>
+    <string name="menu_favorities">Favorities</string>
+    <string name="menu_insertAds">Insert Ads</string>
+    <string name="menu_yourAds">Your Ads</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
