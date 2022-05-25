@@ -7,17 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MainPage">
 
+    <FrameLayout
+        android:id="@+id/flFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="55dp"/>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-                android:backgroundTint="#FF8D69"
-            android:theme="@style/Theme.MyApplication.AppBarOverlay">
+            android:backgroundTint="#FF8D69"
+            android:theme="@style/Theme.MyApplication.AppBarOverlay"
+            app:layout_anchorGravity="center">
 
 
             <ImageView
@@ -29,7 +38,6 @@
                 android:layout_marginEnd="10dp"
                 app:srcCompat="@drawable/ic_baseline_person_24" />
         </com.google.android.material.appbar.AppBarLayout>
-
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -60,7 +68,6 @@
 <!--        android:layout_height="match_parent"-->
 <!--        android:gravity="center"-->
 <!--        android:text="Imagem" />-->
-
 
 
 

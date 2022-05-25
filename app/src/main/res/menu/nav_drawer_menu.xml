@@ -10,20 +10,20 @@
         android:icon="@android:drawable/ic_menu_add"
         android:title="@string/menu_insertAds" />
     <item
-        android:id="@+id/menu_yourAds"
+        android:id="@+id/menu_Ads"
         android:icon="@android:drawable/ic_menu_slideshow"
         android:title="@string/menu_yourAds" />
-    <item
-        android:id="@+id/miItem1"
-        android:title="Item 1"/>
+<!--    <item-->
+<!--        android:id="@+id/miItem1"-->
+<!--        android:title="Item 1"/>-->
 
-    <item
-        android:id="@+id/miItem2"
-        android:title="Item 2"/>
+<!--    <item-->
+<!--        android:id="@+id/miItem2"-->
+<!--        android:title="Item 2"/>-->
 
-    <item
-        android:id="@+id/miItem3"
-        android:title="Item 3"/>
+<!--    <item-->
+<!--        android:id="@+id/miItem3"-->
+<!--        android:title="Item 3"/>-->
 
 
 </menu>

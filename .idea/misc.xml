@@ -22,12 +22,16 @@
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.368" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.368" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/drawable/ic_launcher_background.xml" value="0.368" />
+        <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/InsertAds.xml" value="0.3671875" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/activity_login.xml" value="0.3671875" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/activity_main.xml" value="0.3671875" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/activity_main_page.xml" value="0.3333333333333333" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/activity_register.xml" value="0.3671875" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/activity_update_user.xml" value="0.3671875" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/activity_user_update.xml" value="0.3671875" />
+        <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/fragment_favorites.xml" value="0.3671875" />
+        <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/fragment_insert_ads.xml" value="0.3651041666666667" />
+        <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/fragment_your_ads.xml" value="0.3671875" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/layout/nav_header.xml" value="0.2708333333333333" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/menu/activity_side_menu.xml" value="0.284375" />
         <entry key="..\:/GitHub/SecondHome/app/src/main/res/menu/ativity_main_drawer.xml" value="0.25925925925925924" />

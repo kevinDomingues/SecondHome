@@ -29,7 +29,7 @@
     <string name="successfullUpdate">Atualizado com sucesso!</string>
     <string name="menu_favorities">Favoritos</string>
     <string name="menu_insertAds">Inserir anúncio</string>
-    <string name="menu_yourAds">Seus anúncios</string>
+    <string name="menu_yourAds">Meus anúncios</string>
     <string name="open">Abrir</string>
     <string name="close">Fechar</string>
 </resources>

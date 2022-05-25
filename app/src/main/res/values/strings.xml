@@ -25,12 +25,14 @@
     <string name="successfulSignUp">Account Created, you can login now</string>
     <string name="successfulLogin">Welcome</string>
     <string name="update">Update</string>
-    <string name="successfullUpdate">Atualizado com sucesso!</string>
+    <string name="successfullUpdate">"Successfully Updated! "</string>
     <string name="menu_insertAds">InsertAds</string>
     <string name="menu_favorities">Favorities</string>
-    <string name="menu_yourAds">YourAds</string>
+    <string name="menu_yourAds">MyAds</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
