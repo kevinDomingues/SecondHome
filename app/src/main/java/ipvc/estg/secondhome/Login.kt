@@ -86,6 +86,7 @@ class Login : AppCompatActivity() {
                     ).show()
 
 
+
                     val intent = Intent(this@Login, MainPage::class.java)
                     startActivity(intent)
                 }
