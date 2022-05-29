@@ -25,4 +25,6 @@
     <string name="errorSignUp">Ocorreu um erro, tente novamente</string>
     <string name="successfulSignUp">Conta criada, realize login</string>
     <string name="successfulLogin">Bem-vindo</string>
+    <string name="perfil_titulo">A sua conta</string>
+    <string name="editar">Editar conta</string>
 </resources>

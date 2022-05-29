@@ -3,9 +3,7 @@ package ipvc.estg.secondhome.api
 import ipvc.estg.secondhome.models.DefaultResponse
 import ipvc.estg.secondhome.models.User
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 import java.util.*
 
 interface EndPoints {
@@ -27,4 +25,7 @@ interface EndPoints {
         @Field("username") username:String,
         @Field("password") password: String
     ): Call<User>
+
+    @GET("user/me")
+    fun getUserById(@Header("x-access-token") token: String) : Call<User>
 }
