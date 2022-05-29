@@ -26,6 +26,9 @@ interface EndPoints {
         @Field("password") password: String
     ): Call<User>
 
+    @GET("user/me")
+    fun getUserById(@Header("x-access-token") token: String) : Call<User>
+
     @FormUrlEncoded
     @PUT("user/update")
     fun updateUser(
@@ -36,8 +39,4 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
-
-    @FormUrlEncoded
-    @POST("user/me")
-    fun me(  @Field ("token") token:String,): Call<User>
 }
