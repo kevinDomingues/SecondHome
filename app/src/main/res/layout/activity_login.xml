@@ -96,7 +96,7 @@
         android:layout_below="@+id/inputsLogin"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/orangeTheme"
-        android:text="@string/login"/>
+        android:text="@string/login" />
 
     <LinearLayout
         android:layout_width="wrap_content"

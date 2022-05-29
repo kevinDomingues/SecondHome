@@ -15,17 +15,28 @@ interface EndPoints {
         @Field("name") name:String,
         @Field("email") email:String,
         @Field("password") password:String,
-        @Field("birthdayDate") birthdayDate: Date,
+        @Field("birthdayDate") birthdayDate: String,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
 
     @FormUrlEncoded
     @POST("user/login")
     fun login(
-        @Field("username") username:String,
+        @Field("email") username:String,
         @Field("password") password: String
     ): Call<User>
 
     @GET("user/me")
     fun getUserById(@Header("x-access-token") token: String) : Call<User>
+
+    @FormUrlEncoded
+    @PUT("user/update")
+    fun updateUser(
+        @Field ("token") token:String,
+        @Field("username") username:String,
+        @Field("name") name:String,
+        @Field("email") email:String,
+        @Field("birthdayDate") birthdayDate: Date,
+        @Field("contact") contact:Int
+    ): Call<DefaultResponse>
 }
