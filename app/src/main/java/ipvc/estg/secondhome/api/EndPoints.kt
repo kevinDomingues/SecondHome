@@ -22,7 +22,7 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("user/login")
     fun login(
-        @Field("email") username:String,
+        @Field("username") username:String,
         @Field("password") password: String
     ): Call<User>
 
@@ -37,7 +37,6 @@ interface EndPoints {
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
 
-    @FormUrlEncoded
-    @POST("user/me")
-    fun me(  @Field ("token") token:String,): Call<User>
+    @GET("user/me")
+    fun me(@Header ("x-access-token") token:String,): Call<User>
 }
