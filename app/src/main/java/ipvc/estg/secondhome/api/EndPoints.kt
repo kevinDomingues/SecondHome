@@ -28,6 +28,9 @@ interface EndPoints {
         @Field("password") password: String
     ): Call<User>
 
+    @GET("user/me")
+    fun getUserById(@Header("x-access-token") token: String) : Call<User>
+
     @FormUrlEncoded
     @PUT("user/update")
     fun updateUser(
@@ -39,9 +42,6 @@ interface EndPoints {
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
 
-    @GET("user/me")
-    fun me(@Header ("x-access-token") token:String,): Call<User>
-
     @Multipart
     @POST("announcement/registerAnnouncement")
     fun insertAdd(
@@ -49,3 +49,4 @@ interface EndPoints {
         @Part file : List<MultipartBody.Part>
     ): Call<DefaultResponse>
 }
+

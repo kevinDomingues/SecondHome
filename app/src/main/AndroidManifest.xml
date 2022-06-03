@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SecondHome">
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".MainPage"
             android:exported="false" />
         <activity
