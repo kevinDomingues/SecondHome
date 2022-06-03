@@ -32,4 +32,17 @@
     <string name="menu_yourAds">Meus anúncios</string>
     <string name="open">Abrir</string>
     <string name="close">Fechar</string>
+    <string name="mobility">Permite mobilidade condicionada?</string>
+    <string name="insert_pictures">Inserir fotos</string>
+    <string name="number_rooms">Quartos</string>
+    <string name="number_bathrooms">Casas de banho</string>
+    <string name="price">Preço renda</string>
+    <string name="area">Área</string>
+    <string name="add">Adicionar</string>
+    <string name="add_name">Nome anúncio</string>
+    <string name="choseImages">Escolha fotografias</string>
+    <string name="number_images">Número de fotografias:</string>
+    <string name="errorFieldsEmpty">Por favor preencha todos os campos</string>
+    <string name="location">Localização</string>
+    <string name="ad_added">Anúncio publicado</string>
 </resources>

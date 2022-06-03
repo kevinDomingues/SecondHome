@@ -32,4 +32,17 @@
     <string name="menu_yourAds">My Ads</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="mobility">Allows disabled mobility?</string>
+    <string name="insert_pictures">Insert pictures:</string>
+    <string name="number_rooms">Rooms</string>
+    <string name="number_bathrooms">Bathrooms</string>
+    <string name="price">Rent price</string>
+    <string name="area">Area</string>
+    <string name="add">Add</string>
+    <string name="add_name">Advertisement name</string>
+    <string name="choseImages">Choose pictures</string>
+    <string name="number_images">Number of images:</string>
+    <string name="errorFieldsEmpty">Please fill all fields</string>
+    <string name="location">Location</string>
+    <string name="ad_added">Ad published</string>
 </resources>

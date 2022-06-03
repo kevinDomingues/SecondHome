@@ -2,6 +2,8 @@ package ipvc.estg.secondhome.api
 
 import ipvc.estg.secondhome.models.DefaultResponse
 import ipvc.estg.secondhome.models.User
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 import java.util.*
@@ -29,7 +31,7 @@ interface EndPoints {
     @FormUrlEncoded
     @PUT("user/update")
     fun updateUser(
-        @Field ("token") token:String,
+        @Field("token") token:String,
         @Field("username") username:String,
         @Field("name") name:String,
         @Field("email") email:String,
@@ -39,4 +41,11 @@ interface EndPoints {
 
     @GET("user/me")
     fun me(@Header ("x-access-token") token:String,): Call<User>
+
+    @Multipart
+    @POST("announcement/registerAnnouncement")
+    fun insertAdd(
+        @PartMap partMap: HashMap<String?, RequestBody?>,
+        @Part file : List<MultipartBody.Part>
+    ): Call<DefaultResponse>
 }
