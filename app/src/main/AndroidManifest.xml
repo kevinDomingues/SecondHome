@@ -3,6 +3,9 @@
     package="ipvc.estg.secondhome">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -20,16 +23,20 @@
             android:exported="false" />
         <activity
             android:name=".Register"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
         <activity
             android:name=".Login"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
         <activity
             android:name=".Update_user"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.SecondHomeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
