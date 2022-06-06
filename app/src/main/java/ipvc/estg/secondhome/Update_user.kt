@@ -22,14 +22,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 
-lateinit var sharedPreferences: SharedPreferences
-
 class Update_user : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_user)
-        sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
-        val token = sharedPreferences.getString("token", "empty")
+        sharedPreference = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
+        val token = sharedPreference.getString("token", "empty")
 
         populateUser(token!!)
 
@@ -116,7 +114,7 @@ class Update_user : AppCompatActivity() {
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
 
-        val call = request.me(token)
+        val call = request.getUserById(token)
 
         call.enqueue(object : Callback<User> {
             override fun onResponse(

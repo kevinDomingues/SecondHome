@@ -3,26 +3,15 @@ package ipvc.estg.secondhome
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import androidx.annotation.RequiresApi
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
-import ipvc.estg.secondhome.models.DefaultResponse
 import ipvc.estg.secondhome.models.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.OffsetDateTime
-import java.time.format.DateTimeFormatter
-
-lateinit var sharedPreference: SharedPreferences
-
-lateinit var sharedPreference: SharedPreferences
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +62,7 @@ class Login : AppCompatActivity() {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.login(email, password)
 
+        call.enqueue(object : Callback<User>{
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
