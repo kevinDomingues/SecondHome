@@ -24,6 +24,7 @@ class MainPage : AppCompatActivity() {
 
         val backButton = findViewById<ImageView>(R.id.updateButton)
         val favorites = Favorites()
+        val evaluation = Evaluation()
         val insertAds = InsertAds()
         val yourAds = YourAds()
         backButton.setOnClickListener {
@@ -36,10 +37,18 @@ class MainPage : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
         toggle.syncState()
+
+
 
         // Call findViewById on the NavigationView
         navView = findViewById(R.id.navView)
+
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, evaluation)
+            commit()
+        }
 
         // Call setNavigationItemSelectedListener on the NavigationView to detect when items are clicked
         navView.setNavigationItemSelectedListener {

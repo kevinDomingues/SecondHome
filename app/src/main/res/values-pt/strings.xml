@@ -34,4 +34,13 @@
     <string name="menu_yourAds">Meus anúncios</string>
     <string name="open">Abrir</string>
     <string name="close">Fechar</string>
+    <string name="errorFieldsEmpty">Por favor preencha os campos todos</string>
+    <string name="evaluationSuccessToast">Obrigado pela sua avaliação!</string>
+    <string name="evaluationFailToast">Preencha corretamente os campos acima!</string>
+    <string name="evaluationTitle">Avalia a tua experiência:</string>
+    <string name="evaluationSubtitle">No campo abaixo, descreve como foi a tua experiência ou qual é a tua recomendação para nós:</string>
+    <string name="submitButton">Enviar</string>
+    <string name="defaultRatingBarSubtitle">"A tua avaliação aparecerá aqui "</string>
+    <string name="descriptionHint">Descrição:</string>
+    <string name="nStarsText">estrelas</string>
 </resources>

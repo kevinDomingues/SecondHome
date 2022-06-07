@@ -1,6 +1,7 @@
 package ipvc.estg.secondhome.api
 
 import ipvc.estg.secondhome.models.DefaultResponse
+import ipvc.estg.secondhome.models.Evaluation
 import ipvc.estg.secondhome.models.User
 import retrofit2.Call
 import retrofit2.http.*
@@ -22,7 +23,7 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("user/login")
     fun login(
-        @Field("email") username:String,
+        @Field("username") username:String,
         @Field("password") password: String
     ): Call<User>
 
@@ -39,4 +40,11 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("evaluation/createEvaluation")
+    fun sendEvaluation(
+        @Field("evaluationText") evaluationText:String,
+        @Field("amountOfStars") amountOfStars: Float?
+    ): Call<Evaluation>
 }
