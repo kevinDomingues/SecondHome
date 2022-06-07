@@ -1,20 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsertAds">
+    tools:context=".InsertAds"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvInsertAds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_insertAds"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+                <EditText
+                    android:id="@+id/insertAddAdvName"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_height="35dp"
+                    android:hint="@string/add_name"
+                    android:background="@drawable/border"
+                    android:layout_marginHorizontal="40dp"
+                    android:backgroundTint="@color/darkwhite"/>
+
+                <EditText
+                    android:id="@+id/insertAddLocation"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_height="35dp"
+                    android:hint="@string/location"
+                    android:background="@drawable/border"
+                    android:layout_marginHorizontal="40dp"
+                    android:backgroundTint="@color/darkwhite"/>
+
+                <TextView
+                    android:id="@+id/tvInsertAds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insert_pictures"
+                    android:textSize="16sp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#CDCDCD"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/border"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/lightGray"
+                    >
+                    <ImageView
+                        android:id="@+id/insertAddView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_sharp_add_24"
+                        android:layout_margin="10dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/insertAddImageCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/number_images"
+                    android:textSize="16sp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#CDCDCD"
+                    />
+
+                <CheckBox
+                    android:id="@+id/insertAddMobility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mobility"
+                    android:layout_gravity="center"
+                    android:button="@null"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightGray"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/number_rooms"
+                            />
+
+                        <EditText
+                            android:id="@+id/insertAddRooms"
+                            android:layout_width="match_parent"
+                            android:inputType="number"
+                            android:paddingHorizontal="20dp"
+                            android:layout_height="35dp"
+                            android:backgroundTint="@color/darkwhite"
+                            android:background="@drawable/border"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/number_bathrooms"
+                            />
+
+                        <EditText
+                            android:id="@+id/insertAddBathrooms"
+                            android:layout_width="match_parent"
+                            android:inputType="number"
+                            android:paddingHorizontal="20dp"
+                            android:layout_height="35dp"
+                            android:backgroundTint="@color/darkwhite"
+                            android:background="@drawable/border"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/area"
+                            />
+
+                        <EditText
+                            android:id="@+id/insertAddArea"
+                            android:layout_width="match_parent"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="20dp"
+                            android:layout_height="35dp"
+                            android:backgroundTint="@color/darkwhite"
+                            android:background="@drawable/border"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/price"
+                            />
+
+                        <EditText
+                            android:id="@+id/insertAddPrice"
+                            android:layout_width="match_parent"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="20dp"
+                            android:layout_height="35dp"
+                            android:backgroundTint="@color/darkwhite"
+                            android:background="@drawable/border"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/insertAddEmail"
+                    android:layout_width="match_parent"
+                    android:hint="Email"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/border"
+                    android:layout_marginHorizontal="40dp"
+                    android:backgroundTint="@color/darkwhite"/>
+
+                <EditText
+                    android:id="@+id/insertAddContact"
+                    android:layout_width="match_parent"
+                    android:hint="@string/contact"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/border"
+                    android:layout_marginHorizontal="40dp"
+                    android:backgroundTint="@color/darkwhite"/>
+
+                <Button
+                    android:id="@+id/insertAddBtn"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/add"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
