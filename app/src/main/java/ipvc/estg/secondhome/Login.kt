@@ -12,7 +12,12 @@ import ipvc.estg.secondhome.models.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
 
+lateinit var sharedPreference: SharedPreferences
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +44,10 @@ class Login : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
-            val email = editUsername.text.toString().trim()
+            val username = editUsername.text.toString().trim()
             val password = editPassword.text.toString().trim()
 
-            if (email.isEmpty()) {
+            if (username.isEmpty()) {
                 editUsername.error = getString(R.string.errorUsernameEmpty)
                 editUsername.requestFocus()
                 return@setOnClickListener
@@ -54,19 +59,17 @@ class Login : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            handleLogin(email, password)
+            handleLogin(username, password)
         }
     }
 
-    fun handleLogin(email: String, password: String) {
+    fun handleLogin(username: String, password: String) {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.login(email, password)
+        val call = request.login(username, password)
 
-        call.enqueue(object : Callback<User>{
-            override fun onResponse(
-                call: Call<User>,
-                response: Response<User>
-            ) {
+        call.enqueue(object : Callback<User> {
+            @RequiresApi(Build.VERSION_CODES.O)
+            override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
                     val c: User = response.body()!!
                     var editor = sharedPreference.edit()
@@ -90,3 +93,4 @@ class Login : AppCompatActivity() {
         })
     }
 }
+

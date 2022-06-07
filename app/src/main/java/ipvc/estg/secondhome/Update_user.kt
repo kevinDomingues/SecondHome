@@ -46,6 +46,31 @@ class Update_user : AppCompatActivity() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         birthDayText.setText("" + day + "/" + month + "/" + year)
+        val token = sharedPreference.getString("token","0")
+
+        val request = ServiceBuilder.buildService(EndPoints::class.java)
+        val call = request.getUserById(token!!)
+
+        call.enqueue(object : Callback<User> {
+            @RequiresApi(Build.VERSION_CODES.O)
+            override fun onResponse(
+                call: Call<User>,
+                response: Response<User>
+            ) {
+                if (response.isSuccessful) {
+                    val c: User = response.body()!!
+                    editEmail.setText(c.email);
+                    editUsername.setText(c.username)
+                    editName.setText(c.name)
+                    editPhoneNumber.setText(c.contact.toString(), TextView.BufferType.EDITABLE)
+                    birthDayText.setText(c.birthdayDate)
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Toast.makeText(this@Update_user, R.string.errorSignUp, Toast.LENGTH_SHORT).show()
+            }
+        })
 
         backButton.setOnClickListener {
             val intent = Intent(this, MainPage::class.java)

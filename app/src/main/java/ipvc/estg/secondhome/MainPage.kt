@@ -25,6 +25,7 @@ class MainPage : AppCompatActivity() {
         setContentView(R.layout.activity_main_page)
 
         val favorites = Favorites()
+        val evaluation = Evaluation()
         val insertAds = InsertAds()
         val yourAds = YourAds()
 
@@ -34,12 +35,20 @@ class MainPage : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
         toggle.syncState()
+
+
 
         // Call findViewById on the NavigationView
         navView = findViewById(R.id.navView)
 
-        //add user profile button
+        /*evaluations
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, evaluation)
+            commit()
+        }*/
+
 
         // Call setNavigationItemSelectedListener on the NavigationView to detect when items are clicked
         navView.setNavigationItemSelectedListener {
