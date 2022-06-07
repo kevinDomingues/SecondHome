@@ -41,6 +41,11 @@ class MainPage : AppCompatActivity() {
         // Call findViewById on the NavigationView
         navView = findViewById(R.id.navView)
 
+        supportFragmentManager.beginTransaction().apply {
+          replace(R.id.flFragment, favorites)
+          commit()
+        }
+
         // Call setNavigationItemSelectedListener on the NavigationView to detect when items are clicked
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {

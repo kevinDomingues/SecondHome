@@ -22,13 +22,11 @@ import java.time.format.DateTimeFormatter
 
 lateinit var sharedPreference: SharedPreferences
 
-lateinit var sharedPreference: SharedPreferences
-
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        
+
         sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val backButton = findViewById<ImageView>(R.id.backArrow)
 
@@ -49,10 +47,10 @@ class Login : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
-            val email = editUsername.text.toString().trim()
+            val username = editUsername.text.toString().trim()
             val password = editPassword.text.toString().trim()
 
-            if (email.isEmpty()) {
+            if (username.isEmpty()) {
                 editUsername.error = getString(R.string.errorUsernameEmpty)
                 editUsername.requestFocus()
                 return@setOnClickListener
@@ -64,14 +62,16 @@ class Login : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            handleLogin(email, password)
+            handleLogin(username, password)
         }
     }
 
-    fun handleLogin(email: String, password: String) {
+    fun handleLogin(username: String, password: String) {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.login(email, password)
+        val call = request.login(username, password)
 
+        call.enqueue(object: Callback<User> {
+          @RequiresApi(Build.VERSION_CODES.O)
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
@@ -88,7 +88,7 @@ class Login : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val intent = Intent(this@Login, MainPage::class.java)
+                    val intent = Intent(this@Login,MainPage::class.java)
                     startActivity(intent)
                 }
             }
@@ -96,6 +96,7 @@ class Login : AppCompatActivity() {
             override fun onFailure(call: Call<User>, t: Throwable) {
                 Toast.makeText(this@Login, R.string.errorSignUp, Toast.LENGTH_SHORT).show()
             }
-        })
+      })
     }
-}
+  }
+

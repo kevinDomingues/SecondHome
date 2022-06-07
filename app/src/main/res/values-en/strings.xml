@@ -29,9 +29,21 @@
     <string name="editar">Edit account</string>
     <string name="update">Update</string>
     <string name="successfullUpdate">"Successfully Updated! "</string>
-    <string name="menu_favorities">Favorities</string>
+    <string name="menu_favorities">Your favorites</string>
     <string name="menu_insertAds">Insert Ads</string>
     <string name="menu_yourAds">My Ads</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="location">Location</string>
+    <string name="search">Search</string>
+    <string name="price">Price</string>
+  <string name="price_value">"up until "</string>
+  <string name="date">dd/mm/yy</string>
+  <string name="periodOfTime">Period of time</string>
+    <string name="mobility">Mobility?</string>
+  <string name="housing">Type of housing</string>
+  <string name="room">Room</string>
+  <string name="apartment">Apartment</string>
+  <string name="house">House</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

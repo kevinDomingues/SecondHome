@@ -47,7 +47,7 @@ class Update_user : AppCompatActivity() {
         val token = sharedPreference.getString("token","0")
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.me(token!!)
+        val call = request.getUserById(token!!)
 
         call.enqueue(object : Callback<User> {
             @RequiresApi(Build.VERSION_CODES.O)

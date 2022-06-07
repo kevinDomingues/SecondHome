@@ -22,7 +22,7 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("user/login")
     fun login(
-        @Field("email") username:String,
+        @Field("username") username:String,
         @Field("password") password: String
     ): Call<User>
 
