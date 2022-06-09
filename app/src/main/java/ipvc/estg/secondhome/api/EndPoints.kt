@@ -2,6 +2,7 @@ package ipvc.estg.secondhome.api
 
 import ipvc.estg.secondhome.models.DefaultResponse
 import ipvc.estg.secondhome.models.Habitacoes
+import ipvc.estg.secondhome.models.Evaluation
 import ipvc.estg.secondhome.models.User
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -42,8 +43,14 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
-
-    @Multipart
+  
+    @FormUrlEncoded
+    @POST("evaluation/createEvaluation")
+    fun sendEvaluation(
+        @Field("evaluationText") evaluationText:String,
+        @Field("amountOfStars") amountOfStars: Float?
+    ): Call<Evaluation>
+  
     @POST("announcement/registerAnnouncement")
     fun insertAdd(
         @PartMap partMap: HashMap<String?, RequestBody?>,

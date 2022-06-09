@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Evaluation">
+
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/titleEvaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/evaluationTitle"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/llStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleEvaluation"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp">
+            <RatingBar
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/RatingBar"
+                android:numStars="5"
+                android:rating="2.5"
+                android:stepSize=".5"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvEvaluation"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llRatingText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:text="@string/evaluationSubtitle"
+            android:textAlignment="center"
+            android:textColor="@color/darkerwhite"
+            android:textSize="20sp" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etEvaluation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEvaluation"
+            android:layout_marginTop="35dp"
+            android:textColorHint="@color/darkerwhite2"
+            app:hintTextColor="@color/darkerwhite2"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/descriptionHint"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textColor="@color/darkerwhite"
+                android:background="@drawable/rectangle"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnSubmitEvaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etEvaluation"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:backgroundTint="#FF8D69"
+            android:text="@string/submitButton" />
+
+        <LinearLayout
+            android:id="@+id/llRatingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llStars"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:id="@+id/ratingDisplayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultRatingBarSubtitle"
+                android:textColor="#FF8D69"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF8D69"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

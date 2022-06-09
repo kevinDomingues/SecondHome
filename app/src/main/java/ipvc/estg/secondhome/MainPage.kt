@@ -48,6 +48,13 @@ class MainPage : AppCompatActivity() {
 
     //add user profile button
 
+        /*evaluations
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, evaluation)
+            commit()
+        }*/
+
+
     // Call setNavigationItemSelectedListener on the NavigationView to detect when items are clicked
     navView.setNavigationItemSelectedListener {
       when (it.itemId) {
