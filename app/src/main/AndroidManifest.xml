@@ -33,6 +33,9 @@
             android:name=".Update_user"
             android:exported="false"
             android:theme="@style/Theme.SecondHomeNoActionBar"/>
+      <activity
+            android:name=".Results"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -18,13 +18,14 @@ import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
 lateinit var sharedPreference: SharedPreferences
+
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         sharedPreference = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
-        
+
         val backButton = findViewById<ImageView>(R.id.backArrow)
 
         val registerButton = findViewById<TextView>(R.id.registerBlue)

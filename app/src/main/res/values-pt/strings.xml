@@ -56,4 +56,5 @@
     <string name="errorFieldsEmpty">Por favor preencha todos os campos</string>
     <string name="location">Localização</string>
     <string name="ad_added">Anúncio publicado</string>
+    <string name="search">Pesquisa</string>
 </resources>

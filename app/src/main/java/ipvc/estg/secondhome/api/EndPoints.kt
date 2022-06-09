@@ -1,6 +1,7 @@
 package ipvc.estg.secondhome.api
 
 import ipvc.estg.secondhome.models.DefaultResponse
+import ipvc.estg.secondhome.models.Habitacoes
 import ipvc.estg.secondhome.models.Evaluation
 import ipvc.estg.secondhome.models.User
 import okhttp3.MultipartBody
@@ -55,5 +56,9 @@ interface EndPoints {
         @PartMap partMap: HashMap<String?, RequestBody?>,
         @Part file : List<MultipartBody.Part>
     ): Call<DefaultResponse>
+
+    @GET("announcement")
+    fun getAnnouncement(@Header("x-access-token") token: String) : Call<ArrayList<Habitacoes>>
+
 }
 
