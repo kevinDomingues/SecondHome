@@ -5,6 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#F2F2F2"
     tools:context=".MainPage">
 
     <FrameLayout
@@ -23,3 +24,4 @@
         android:fitsSystemWindows="true"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
+

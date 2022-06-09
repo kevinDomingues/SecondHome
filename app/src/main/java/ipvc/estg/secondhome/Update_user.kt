@@ -116,7 +116,7 @@ class Update_user : AppCompatActivity() {
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
 
-        val call = request.me(token)
+        val call = request.getUserById(token)
 
         call.enqueue(object : Callback<User> {
             override fun onResponse(

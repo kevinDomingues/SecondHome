@@ -47,4 +47,5 @@
     <string name="errorFieldsEmpty">Please fill all fields</string>
     <string name="location">Location</string>
     <string name="ad_added">Ad published</string>
+    <string name="search">Search</string>
 </resources>

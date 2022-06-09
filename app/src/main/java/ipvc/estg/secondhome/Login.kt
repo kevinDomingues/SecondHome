@@ -22,15 +22,13 @@ import java.time.format.DateTimeFormatter
 
 lateinit var sharedPreference: SharedPreferences
 
-lateinit var sharedPreference: SharedPreferences
-
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         sharedPreference = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
-        
+
         val backButton = findViewById<ImageView>(R.id.backArrow)
 
         val registerButton = findViewById<TextView>(R.id.registerBlue)
@@ -73,6 +71,7 @@ class Login : AppCompatActivity() {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.login(email, password)
 
+        call.enqueue(object :  Callback<User> {
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
