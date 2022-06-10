@@ -1,6 +1,8 @@
 package ipvc.estg.secondhome.api
 
+import ipvc.estg.secondhome.models.Announcement
 import ipvc.estg.secondhome.models.DefaultResponse
+import ipvc.estg.secondhome.models.ListUser
 import ipvc.estg.secondhome.models.User
 import retrofit2.Call
 import retrofit2.http.*
@@ -20,7 +22,7 @@ interface EndPoints {
     ): Call<DefaultResponse>
 
     @FormUrlEncoded
-    @POST("user/login")
+    @POST("user/loginWeb")
     fun login(
         @Field("email") username:String,
         @Field("password") password: String
@@ -40,4 +42,16 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("user/me")
     fun me(  @Field ("token") token:String,): Call<User>
+
+
+    @GET("user/getUsersAndNAnnouncements")
+    fun allUsers(  ): Call<List<User>>
+
+
+    @FormUrlEncoded
+    @POST("announcement/getAnnouncements")
+    fun annoucements(  @Field ("id") token:String,): Call<List<Announcement>>
+
+
+
 }
