@@ -2,6 +2,7 @@ package ipvc.estg.secondhome
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,12 +23,15 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 class Profile : AppCompatActivity() {
+
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
       super.onCreate(savedInstanceState)
       setContentView(R.layout.activity_profile)
 
-      sharedPreference = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
-      val token = sharedPreference.getString("token", "empty")
+      sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
+      val token = sharedPreferences.getString("token", "empty")
 
       val backButton = findViewById<ImageView>(R.id.backArrow)
 

@@ -2,6 +2,7 @@ package ipvc.estg.secondhome
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,15 +12,16 @@ import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.secondhome.LineAdapter.LineAdapter
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
-import ipvc.estg.secondhome.models.Habitacoes
-import kotlinx.android.synthetic.main.activity_resultados.*
+import ipvc.estg.secondhome.models.Advertisements
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class Results : AppCompatActivity() {
 
-  private lateinit var adList: ArrayList<Habitacoes>
+  private lateinit var adList: ArrayList<Advertisements>
+
+  lateinit var sharedPreferences: SharedPreferences
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -43,10 +45,10 @@ class Results : AppCompatActivity() {
     val request = ServiceBuilder.buildService(EndPoints::class.java)
     val call = request.getAnnouncement(token!!)
 
-    call.enqueue(object: Callback<ArrayList<Habitacoes>> {
+    call.enqueue(object: Callback<ArrayList<Advertisements>> {
       override fun onResponse(
-        call: Call<ArrayList<Habitacoes>>,
-        response: Response<ArrayList<Habitacoes>>
+          call: Call<ArrayList<Advertisements>>,
+          response: Response<ArrayList<Advertisements>>
       ) {
         if(response.isSuccessful){
           val recView = findViewById<RecyclerView>(R.id.resultadoRv)
@@ -55,7 +57,7 @@ class Results : AppCompatActivity() {
         }
       }
 
-      override fun onFailure(call: Call<ArrayList<Habitacoes>>, t: Throwable) {
+      override fun onFailure(call: Call<ArrayList<Advertisements>>, t: Throwable) {
       val number = 1
       }
     })

@@ -7,16 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-lateinit var sharedPreference: SharedPreferences
-
 class MainActivity : AppCompatActivity() {
+
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sharedPreference = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
 
-        val token = sharedPreference.getString("token", "empty")
+        val token = sharedPreferences.getString("token", "empty")
 
         val startButton = findViewById<Button>(R.id.startButton)
 
