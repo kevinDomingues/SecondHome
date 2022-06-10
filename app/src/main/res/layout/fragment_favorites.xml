@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     android:background="#D9D9D9"
     tools:context=".Favorites">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp">
 
     <TextView
       android:id="@+id/tvFavorites"
@@ -40,39 +47,38 @@
     android:background="@drawable/ic_baseline_reorder_24"
     android:backgroundTint="@color/black" />
 
-  <androidx.appcompat.widget.AppCompatButton
-    android:id="@+id/filter"
-    android:layout_width="30dp"
-    android:layout_height="30dp"
-    android:layout_below="@+id/etLocation"
-    android:layout_alignParentRight="true"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="20dp"
-    android:background="@drawable/ic_baseline_filter_alt_24" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/filter"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/etLocation"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ic_baseline_filter_alt_24" />
+
+    <include
+        android:id="@+id/includeSpinner"
+        android:layout_below="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/filter_spinner" />
 
     <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/btnSearch"
       android:layout_width="200dp"
       android:layout_height="45dp"
-      android:layout_below="@+id/etLocation"
+      android:layout_below="@+id/includeSpinner"
       android:gravity="center"
       android:background="@drawable/rectangle_border"
       android:backgroundTint="@color/orangeTheme"
       android:text="@string/search"
       android:textColor="@color/white"
       android:textStyle="bold"
-      android:layout_marginTop="55dp"
       android:layout_centerHorizontal="true"
       />
 
-    <Spinner
-      android:id="@+id/filterSpinner"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_below="@+id/filter"
-      android:layout_marginTop="5dp"
-      android:spinnerMode="dropdown"
-      android:backgroundTint="#D9D9D9"
-      />
 
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

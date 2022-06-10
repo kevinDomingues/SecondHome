@@ -37,13 +37,16 @@
     <string name="location">Localização</string>
     <string name="search">Procurar</string>
     <string name="price">Preço</string>
-  <string name="price_value">até</string>
+  <string name="price_value">Até</string>
   <string name="date">dd/mm/aa</string>
   <string name="periodOfTime">Período de tempo</string>
-    <string name="mobility">Mobilidade?</string>
+    <string name="elevator">Elevador</string>
   <string name="housing">Tipo de habitação</string>
-  <string name="room">Quarto</string>
-  <string name="apartment">Apartamento</string>
-  <string name="house">Casa</string>
+  <string name="airconditioning">Ar Condicionado</string>
+  <string name="pool">Piscina</string>
+  <string name="survailence">Vigilância</string>
     <string name="hello_blank_fragment">Olá fragmento vazio</string>
+    <string name="to_date_string">Até</string>
+    <string name="CheckBoxesTitle">Tem de ter</string>
+    <string name="typeOfAccommodationTitle">Tipo De Alojamento</string>
 </resources>
