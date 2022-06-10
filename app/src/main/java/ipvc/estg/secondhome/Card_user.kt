@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.secondhome.models.User
@@ -41,7 +42,7 @@ class Card_user( c: List<User>) : RecyclerView.Adapter<Card_user.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nomeText: TextView
         var anuncioText: TextView
-        var button: Button
+        var button: ImageButton
 
         init {
             nomeText = itemView.findViewById(R.id.nome)
