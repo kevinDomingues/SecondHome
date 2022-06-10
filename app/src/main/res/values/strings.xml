@@ -30,9 +30,25 @@
     <string name="successfullUpdate">"Successfully Updated! "</string>
     <string name="menu_insertAds">InsertAds</string>
     <string name="menu_favorities">Favorities</string>
-    <string name="menu_yourAds">MyAds</string>
+    <string name="menu_yourAds">Your favorites</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="location">Location</string>
+    <string name="search">Search</string>
+  <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="price">Price</string>
+    <string name="price_value">Up until</string>
+    <string name="date">dd/mm/yy</string>
+    <string name="periodOfTime">Period of time</string>
+    <string name="elevator">Elevator</string>
+    <string name="housing">Type of housing</string>
+    <string name="airconditioning">Air Conditioning</string>
+    <string name="pool">Pool</string>
+    <string name="survailence">Survailence</string>
+    <string name="to_date_string">To</string>
+    <string name="CheckBoxesTitle">Need to have</string>
+    <string name="typeOfAccommodationTitle">Type Of Accommodation</string>
     <string name="evaluationSuccessToast">Thanks for your evaluation!</string>
     <string name="evaluationFailToast">Fill all the fields!</string>
     <string name="evaluationTitle">Rate your experience:</string>

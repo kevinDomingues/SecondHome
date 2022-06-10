@@ -71,7 +71,7 @@ class MainPage : AppCompatActivity() {
             replace(R.id.flFragment, insertAds)
             commit()
           }
-//                    Toast.makeText(this, "InsertAds", Toast.LENGTH_SHORT).show()
+          Toast.makeText(this, "InsertAds", Toast.LENGTH_SHORT).show()
           true
         }
         R.id.menu_Ads -> {
