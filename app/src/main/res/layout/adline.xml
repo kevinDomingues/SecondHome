@@ -16,6 +16,7 @@
 
       <!-- Media -->
       <ImageView
+        android:id="@+id/adimage"
         android:layout_width="match_parent"
         android:layout_height="194dp"
         android:scaleType="centerCrop" />
@@ -33,7 +34,7 @@
 
         <!-- Titulo  -->
         <TextView
-          android:id="@+id/localizacao"
+          android:id="@+id/adname"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="Casa do Ernesto"
@@ -45,7 +46,8 @@
           android:id="@+id/numquartos"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginLeft="280dp"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="30dp"
           android:layout_marginTop="30dp"
           android:text="Num quarto"
           android:textAppearance="?attr/textAppearanceBody2"
@@ -53,7 +55,7 @@
 
         <!-- Contactos  -->
         <TextView
-          android:id="@+id/area"
+          android:id="@+id/contacts"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="35dp"

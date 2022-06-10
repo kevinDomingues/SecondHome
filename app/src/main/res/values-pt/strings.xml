@@ -34,7 +34,6 @@
     <string name="menu_yourAds">Meus anúncios</string>
     <string name="open">Abrir</string>
     <string name="close">Fechar</string>
-    <string name="errorFieldsEmpty">Por favor preencha os campos todos</string>
     <string name="evaluationSuccessToast">Obrigado pela sua avaliação!</string>
     <string name="evaluationFailToast">Preencha corretamente os campos acima!</string>
     <string name="evaluationTitle">Avalia a tua experiência:</string>
@@ -57,4 +56,7 @@
     <string name="location">Localização</string>
     <string name="ad_added">Anúncio publicado</string>
     <string name="search">Pesquisa</string>
+    <string name="house_type_1">Apartamento</string>
+    <string name="house_type_2">Quarto</string>
+    <string name="constructionYear">Ano de construção</string>
 </resources>

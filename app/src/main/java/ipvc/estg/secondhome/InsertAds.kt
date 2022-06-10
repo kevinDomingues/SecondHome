@@ -5,12 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.StrictMode
 import android.view.View
 import android.widget.*
-import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import com.squareup.picasso.Picasso
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
@@ -21,7 +20,6 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Part
 import java.io.File
 
 
@@ -29,12 +27,20 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
 
     val REQUEST_CODE = 200
 
-    private lateinit var files: ArrayList<Uri>
+    private var files: ArrayList<Uri> = ArrayList()
+
+    lateinit var file: Uri
 
     lateinit var sharedPreferences: SharedPreferences
 
+    private var house_type: Int = 1
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+
+        StrictMode.setThreadPolicy(policy)
 
         files = ArrayList()
 
@@ -55,6 +61,17 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
         insertAdsBtn?.setOnClickListener {
             insertAdd()
         }
+
+        val housetype1Btn = getView()?.findViewById<RadioButton>(R.id.house_type_1)
+        val housetype2Btn = getView()?.findViewById<RadioButton>(R.id.house_type_2)
+
+        housetype1Btn?.setOnClickListener {
+            onRadioButtonClicked(it)
+        }
+
+        housetype2Btn?.setOnClickListener {
+            onRadioButtonClicked(it)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -69,21 +86,20 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
 
                 for (i in 0..count!! - 1){
                     var imageUri: Uri = data.clipData?.getItemAt(i)!!.uri
+                    file = imageUri
                     files.add(imageUri)
-                    Picasso.with(this.context).load(imageUri).into(imageView)
+                    Picasso.get().load(imageUri).into(imageView)
                 }
             } else if (data?.data != null) {
                 var imageUri: Uri = data.data!!
                 files.add(imageUri)
-                Picasso.with(this.context).load(imageUri).into(imageView)
+                Picasso.get().load(imageUri).into(imageView)
             }
         }
         numberImages?.setText(""+getString(R.string.number_images)+" "+files.size.toString())
     }
 
     fun insertAdd() {
-        var list : ArrayList<MultipartBody.Part> = ArrayList()
-
         val yourAds = YourAds()
 
         val advertisementName = getView()?.findViewById<EditText>(R.id.insertAddAdvName)
@@ -92,13 +108,10 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
         val bathrooms = getView()?.findViewById<EditText>(R.id.insertAddBathrooms)
         val area = getView()?.findViewById<EditText>(R.id.insertAddArea)
         val rent = getView()?.findViewById<EditText>(R.id.insertAddPrice)
+        val constructionYear =  getView()?.findViewById<EditText>(R.id.insertAddConstructionYear)
         val email = getView()?.findViewById<EditText>(R.id.insertAddEmail)
         val contact = getView()?.findViewById<EditText>(R.id.insertAddContact)
-        val mobility = getView()?.findViewById<CheckBox>(R.id.insertAddMobility)
-
-        for (uri: Uri in files){
-            list.add(prepareFilePart(uri))
-        }
+        val accessibility = getView()?.findViewById<CheckBox>(R.id.insertAddMobility)
 
         if (email?.text.isNullOrEmpty()
             || advertisementName?.text.isNullOrEmpty()
@@ -107,6 +120,7 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
             || bathrooms?.text.isNullOrEmpty()
             || area?.text.isNullOrEmpty()
             || rent?.text.isNullOrEmpty()
+            || constructionYear?.text.isNullOrEmpty()
             || contact?.text.isNullOrEmpty()) {
             Toast.makeText(this.context, R.string.errorFieldsEmpty, Toast.LENGTH_LONG).show()
             return
@@ -115,21 +129,30 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
         sharedPreferences = this.requireActivity().getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("token", "empty")
 
-        var map : HashMap<String?, RequestBody?> = HashMap()
+        var list : ArrayList<MultipartBody.Part> = ArrayList()
 
-        map.put("token", createPartFromString(token!!))
-        map.put("type", createPartFromString(rooms!!.text.toString().trim()))
-        map.put("netArea", createPartFromString(area!!.text.toString().trim()))
-        map.put("bathrooms", createPartFromString(bathrooms!!.text.toString().trim()))
-        map.put("price", createPartFromString(rent!!.text.toString().trim()))
-        map.put("location", createPartFromString(location!!.text.toString().trim()))
-        map.put("constructionYear", createPartFromString("2009"))
+        for (uri: Uri in files){
+            list.add(prepareFilePart(uri))
+        }
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.insertAdd(map, list)
+        val call = request.insertAdd(
+            token!!,
+//            list,
+            createPartFromString(house_type.toString()),
+            createPartFromString(area!!.text.toString().trim()),
+            createPartFromString(rooms!!.text.toString().trim()),
+            createPartFromString(bathrooms!!.text.toString().trim()),
+            createPartFromString(rent!!.text.toString().trim()),
+            createPartFromString(location!!.text.toString().trim()),
+            createPartFromString(constructionYear!!.text.toString().trim()),
+            createPartFromString(accessibility!!.isChecked.toString()),
+            createPartFromString(email!!.text.toString().trim()),
+            createPartFromString(contact!!.text.toString().trim()),
+            createPartFromString(advertisementName!!.text.toString().trim()),
+        )
 
         call.enqueue(object : Callback<DefaultResponse> {
-            @RequiresApi(Build.VERSION_CODES.O)
             override fun onResponse(
                 call: Call<DefaultResponse>,
                 response: Response<DefaultResponse>
@@ -154,15 +177,36 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
         })
     }
 
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            val checked = view.isChecked
+
+            when (view.getId()) {
+                R.id.house_type_1 ->
+                    if (checked) {
+                        house_type = 1
+                    }
+                R.id.house_type_2 ->
+                    if (checked) {
+                        house_type= 2
+                    }
+            }
+        }
+    }
+
     fun prepareFilePart(uri: Uri) : MultipartBody.Part {
-        var file: File = File(uri.path)
+        var file: File = File(uri.path!!)
         var requestFile: RequestBody = RequestBody.create(MediaType.parse("image/*"), file)
 
-        return MultipartBody.Part.createFormData("images[]", file.name, requestFile)
+        return MultipartBody.Part.createFormData("images", file.name, requestFile)
     }
 
     fun createPartFromString(stringData: String): RequestBody {
-        return RequestBody.create(MediaType.parse("multipart/form-data"), stringData)
+        return RequestBody.create(MultipartBody.FORM, stringData)
+    }
+
+    companion object {
+        private val MEDIA_TYPE_IMAGE = MediaType.parse("image/*")
     }
 
 }

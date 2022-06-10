@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -23,11 +22,15 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 
 class Update_user : AppCompatActivity() {
+
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_user)
-        sharedPreference = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
-        val token = sharedPreference.getString("token", "empty")
+
+        sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("token","0")
 
         populateUser(token!!)
 
@@ -46,13 +49,12 @@ class Update_user : AppCompatActivity() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         birthDayText.setText("" + day + "/" + month + "/" + year)
-        val token = sharedPreference.getString("token","0")
+
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getUserById(token!!)
 
         call.enqueue(object : Callback<User> {
-            @RequiresApi(Build.VERSION_CODES.O)
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
