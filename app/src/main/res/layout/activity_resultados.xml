@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#F2F2F2"
+  tools:context=".Results">
+
+  <!--- botao para voltar -->
+  <ImageView
+    android:id="@+id/btnBackPage"
+    android:layout_width="40dp"
+    android:layout_height="30dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="10dp"
+    android:padding="2dip"
+    android:src="@drawable/ic_baseline_arrow_back_24"
+    android:textSize="20sp" />
+
+  <!--- resultados -->
+  <TextView
+    android:id="@+id/tv1resultados"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:layout_marginLeft="250dp"
+    android:layout_marginTop="50dp"
+    android:background="#F2F2F2"
+    android:padding="3dip"
+    android:text=""
+    android:textColor="#CDCDCD"
+    android:textSize="20dp" />
+
+  <!--- "Resultados para: " -->
+  <TextView
+    android:id="@+id/resultadoPara"
+    android:layout_width="170dp"
+    android:layout_height="30dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="80dp"
+    android:text="Resultados para:"
+    android:textSize="20dp"
+    android:textColor="#FF8D69"
+    android:padding="3dip"/>
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/resultadoRv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="200dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:listitem="@layout/adline">
+
+  </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>
