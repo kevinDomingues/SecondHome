@@ -84,6 +84,7 @@
         <entry key="app/src/main/res/layout/fragment_insert_ads.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_your_ads.xml" value="0.19157088122605365" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/order_spinner.xml" value="0.25" />
       </map>
     </option>
   </component>

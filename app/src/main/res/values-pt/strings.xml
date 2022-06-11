@@ -71,4 +71,6 @@
     <string name="house_type_1">Apartamento</string>
     <string name="house_type_2">Quarto</string>
     <string name="constructionYear">Ano de construção</string>
+    <string name="order_by">Ordenar por:</string>
+    <string name="distance">Distância</string>
 </resources>

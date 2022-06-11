@@ -27,6 +27,8 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
 
     val filterButton = getView()?.findViewById<Button>(R.id.filter)
     val filterDropdown = getView()?.findViewById<RelativeLayout>(R.id.includeSpinner)
+    val orderByButton = getView()?.findViewById<Button>(R.id.order)
+    val orderByDropdown = getView()?.findViewById<RelativeLayout>(R.id.includeOrderSpinner)
     sharedPreferences = this.requireActivity().getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("token", "empty")
 
@@ -55,7 +57,22 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
         filterDropdown.visibility = View.GONE
       }
       else{
+        if(orderByDropdown!!.isVisible){
+          orderByDropdown.visibility = View.GONE
+        }
         filterDropdown.visibility = View.VISIBLE
+      }
+    }
+    orderByDropdown?.visibility = View.GONE
+    orderByButton?.setOnClickListener{
+      if(orderByDropdown!!.isVisible){
+        orderByDropdown.visibility = View.GONE
+      }
+      else{
+        if(filterDropdown!!.isVisible){
+          filterDropdown.visibility = View.GONE
+        }
+        orderByDropdown.visibility = View.VISIBLE
       }
     }
 
