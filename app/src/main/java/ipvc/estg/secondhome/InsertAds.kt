@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.location.Address
+import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
 import android.os.StrictMode
@@ -21,6 +23,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
+import java.io.IOException
 
 
 class InsertAds : Fragment(R.layout.fragment_insert_ads) {
@@ -135,6 +138,18 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
             list.add(prepareFilePart(uri))
         }
 
+        var addressList: List<Address>? = null
+
+        val geocoder = Geocoder(this@InsertAds.context)
+
+        try{
+            addressList = geocoder.getFromLocationName(location!!.text.toString().trim(), 1)
+        } catch (e: IOException){
+            e.printStackTrace()
+        }
+
+        val address = addressList!![0]
+
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.insertAdd(
             token!!,
@@ -145,6 +160,8 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
             createPartFromString(bathrooms!!.text.toString().trim()),
             createPartFromString(rent!!.text.toString().trim()),
             createPartFromString(location!!.text.toString().trim()),
+            createPartFromString(address.latitude.toString()),
+            createPartFromString(address.longitude.toString()),
             createPartFromString(constructionYear!!.text.toString().trim()),
             createPartFromString(accessibility!!.isChecked.toString()),
             createPartFromString(email!!.text.toString().trim()),

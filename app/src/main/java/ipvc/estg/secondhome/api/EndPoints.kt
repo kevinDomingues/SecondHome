@@ -61,6 +61,8 @@ interface EndPoints {
         @Part("bathrooms") bathrooms: RequestBody,
         @Part("price") price: RequestBody,
         @Part("location") location: RequestBody,
+        @Part("lat") lat: RequestBody,
+        @Part("lng") lng: RequestBody,
         @Part("constructionYear") constructionYear: RequestBody,
         @Part("accessibility") accessibility: RequestBody,
         @Part("email") email: RequestBody,
