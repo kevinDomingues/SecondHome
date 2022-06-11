@@ -13,6 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class Login : AppCompatActivity() {
 
     lateinit var sharedPreferences: SharedPreferences
@@ -21,9 +22,8 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
         sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
-        
+
         val backButton = findViewById<ImageView>(R.id.backArrow)
 
         val registerButton = findViewById<TextView>(R.id.registerBlue)
@@ -66,7 +66,6 @@ class Login : AppCompatActivity() {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.login(username, password)
 
-
         call.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
@@ -81,7 +80,7 @@ class Login : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val intent = Intent(this@Login,MainPage::class.java)
+                    val intent = Intent(this@Login, MainPage::class.java)
                     startActivity(intent)
                 }
             }
@@ -89,8 +88,7 @@ class Login : AppCompatActivity() {
             override fun onFailure(call: Call<User>, t: Throwable) {
                 Toast.makeText(this@Login, R.string.errorSignUp, Toast.LENGTH_SHORT).show()
             }
-      })
+        })
     }
 }
-
 
