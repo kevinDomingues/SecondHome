@@ -34,9 +34,6 @@
     <string name="menu_yourAds">Meus anúncios</string>
     <string name="open">Abrir</string>
     <string name="close">Fechar</string>
-    <string name="location">Localização</string>
-    <string name="search">Procurar</string>
-    <string name="price">Preço</string>
   <string name="price_value">Até</string>
   <string name="date">dd/mm/aa</string>
   <string name="periodOfTime">Período de tempo</string>

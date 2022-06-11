@@ -33,6 +33,9 @@ interface EndPoints {
     @GET("user/me")
     fun getUserById(@Header("x-access-token") token: String) : Call<User>
 
+    @GET("favorites/getFavorites")
+    fun getFavoritesFromSession(@Header("x-access-token") token: String) : Call<ArrayList<Advertisements>>
+
     @FormUrlEncoded
     @PUT("user/update")
     fun updateUser(
