@@ -21,7 +21,28 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_drawer_menu"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"/>
+        android:fitsSystemWindows="true">
+
+      <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_power_settings_new_24"
+        android:textColorHint="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="23dp"
+        android:hint="@string/logout"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+      </RelativeLayout>
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

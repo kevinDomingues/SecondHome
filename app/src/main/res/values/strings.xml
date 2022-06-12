@@ -57,5 +57,6 @@
     <string name="house_type_1">Apartment</string>
     <string name="house_type_2">Room</string>
     <string name="constructionYear">Construction Year</string>
-  <string name="errorFieldsEmpty">Please fill all fields</string>
+    <string name="errorFieldsEmpty">Please fill all fields</string>
+    <string name="logout">Logout</string>
 </resources>

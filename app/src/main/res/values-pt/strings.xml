@@ -59,4 +59,5 @@
     <string name="house_type_1">Apartamento</string>
     <string name="house_type_2">Quarto</string>
     <string name="constructionYear">Ano de construção</string>
+    <string name="logout">Terminar Sessão</string>
 </resources>
