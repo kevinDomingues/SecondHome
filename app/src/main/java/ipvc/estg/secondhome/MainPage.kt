@@ -1,17 +1,17 @@
 package ipvc.estg.secondhome
 
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
-import android.widget.EditText
+import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.AppBarConfiguration
-
 import com.google.android.material.navigation.NavigationView
 
 
@@ -21,6 +21,8 @@ class MainPage : AppCompatActivity() {
   private lateinit var drawerLayout: DrawerLayout
   private lateinit var navView: NavigationView
 
+  lateinit var sharedPreferences: SharedPreferences
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main_page)
@@ -29,6 +31,19 @@ class MainPage : AppCompatActivity() {
     val insertAds = InsertAds()
     val yourAds = YourAds()
     val search = Search()
+
+    val logout = findViewById<Button>(R.id.logout)
+
+    logout.setOnClickListener {
+      val intent = Intent(this@MainPage, Login::class.java)
+      startActivity(intent)
+
+      sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
+      val editor: SharedPreferences.Editor = sharedPreferences.edit()
+      editor.clear()
+      editor.apply()
+      finish()
+    }
 
     // Call findViewById on the DrawerLayout
     drawerLayout = findViewById(R.id.drawerLayout)
