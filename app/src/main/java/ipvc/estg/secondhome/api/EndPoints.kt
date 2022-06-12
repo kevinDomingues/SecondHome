@@ -43,7 +43,7 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
-  
+
     @FormUrlEncoded
     @POST("evaluation/createEvaluation")
     fun sendEvaluation(

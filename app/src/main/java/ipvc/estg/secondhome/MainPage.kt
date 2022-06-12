@@ -125,7 +125,7 @@ class MainPage : AppCompatActivity() {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     return when (item.itemId) {
       R.id.userMenu -> {
-        val intent = Intent(this, Update_user::class.java)
+        val intent = Intent(this, Profile::class.java)
         startActivity(intent)
         true
       }
