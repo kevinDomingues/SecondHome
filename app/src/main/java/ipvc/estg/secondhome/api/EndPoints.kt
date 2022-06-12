@@ -57,5 +57,9 @@ interface EndPoints {
     @POST("announcement/delete")
     fun deleteAnnouncement(  @Field ("id") id:String): Call<DefaultResponse>
 
+    @FormUrlEncoded
+    @POST("user/deleteUserAdmin")
+    fun deleteUser(  @Field ("id") id:String): Call<DefaultResponse>
+
 
 }
