@@ -19,6 +19,7 @@
       android:id="@+id/menu_search"
       android:icon="@android:drawable/ic_menu_slideshow"
       android:title="@string/search" />
+
 <!--    <item-->
 <!--        android:id="@+id/miItem1"-->
 <!--        android:title="Item 1"/>-->
