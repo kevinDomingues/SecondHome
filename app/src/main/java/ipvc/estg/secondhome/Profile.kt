@@ -8,10 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType.TYPE_NULL
 import android.text.SpannableString
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.User
@@ -36,7 +33,14 @@ class Profile : AppCompatActivity() {
       val backButton = findViewById<ImageView>(R.id.backArrow)
 
       backButton.setOnClickListener {
-        val intent = Intent(this, Login::class.java)
+        val intent = Intent(this, MainPage::class.java)
+        startActivity(intent)
+      }
+
+      val editAccount = findViewById<Button>(R.id.editarConta)
+
+      editAccount.setOnClickListener {
+        val intent = Intent(this, Update_user::class.java)
         startActivity(intent)
       }
 

@@ -27,7 +27,7 @@
     <string name="successfulLogin">Welcome</string>
     <string name="perfil_titulo">Your account</string>
     <string name="editar">Edit account</string>
-    <string name="update">Update</string>
+    <string name="update">Update account</string>
     <string name="successfullUpdate">"Successfully Updated! "</string>
     <string name="menu_favorities">Favorities</string>
     <string name="menu_insertAds">Insert Ads</string>

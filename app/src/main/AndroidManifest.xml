@@ -17,7 +17,8 @@
         android:theme="@style/Theme.SecondHome">
         <activity
             android:name=".Profile"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
         <activity
             android:name=".MainPage"
             android:exported="false" />

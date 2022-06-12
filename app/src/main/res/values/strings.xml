@@ -26,7 +26,7 @@
     <string name="successfulLogin">Welcome</string>
     <string name="perfil_titulo">Your account</string>
     <string name="editar">Edit account</string>
-    <string name="update">Update</string>
+    <string name="update">Update account</string>
     <string name="successfullUpdate">"Successfully Updated! "</string>
     <string name="menu_insertAds">InsertAds</string>
     <string name="menu_favorities">Favorities</string>
@@ -51,11 +51,11 @@
     <string name="add_name">Advertisement name</string>
     <string name="choseImages">Choose pictures</string>
     <string name="number_images">Number of images:</string>
-    <string name="errorFieldsEmpty">Please fill all fields</string>
     <string name="location">Location</string>
     <string name="ad_added">Ad published</string>
     <string name="search">Search</string>
     <string name="house_type_1">Apartment</string>
     <string name="house_type_2">Room</string>
     <string name="constructionYear">Construction Year</string>
+  <string name="errorFieldsEmpty">Please fill all fields</string>
 </resources>
