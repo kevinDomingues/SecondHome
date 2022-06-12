@@ -15,6 +15,7 @@ class Card_user( c: List<User>) : RecyclerView.Adapter<Card_user.ViewHolder>() {
 
     var size=c.size;
     var user=c
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_users, parent, false)
 

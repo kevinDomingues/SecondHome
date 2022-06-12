@@ -14,5 +14,6 @@ data class Announcement (
     val hourDate: Date,
     val accessibilty:Boolean,
     val wifi:Boolean,
-    val rooms : Int
+    val rooms : Int,
+    val _id:String
 )

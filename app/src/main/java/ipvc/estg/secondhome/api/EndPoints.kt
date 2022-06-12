@@ -53,5 +53,9 @@ interface EndPoints {
     fun annoucements(  @Field ("id") token:String,): Call<List<Announcement>>
 
 
+    @FormUrlEncoded
+    @POST("announcement/delete")
+    fun deleteAnnouncement(  @Field ("id") id:String): Call<DefaultResponse>
+
 
 }

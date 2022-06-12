@@ -1,31 +1,40 @@
 package ipvc.estg.secondhome
 
+import android.app.Activity
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import ipvc.estg.secondhome.api.EndPoints
+import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.Announcement
+import ipvc.estg.secondhome.models.DefaultResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<Card_ads.ViewHolder>() {
 
     var size=c.size;
     var announcement=c
+    var token=userToken
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Card_ads.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.cards_ads, parent, false)
-
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: Card_ads.ViewHolder, position: Int) {
-
+        var stringPrice=announcement.get(position).price.toString()+'$'
         holder.localizacao.text = announcement.get(position).location
         holder.area.text=announcement.get(position).netArea.toString()
         holder.bathroom.text=announcement.get(position).bathrooms.toString()
-        holder.preco.text=announcement.get(position).price.toString()
+        holder.preco.text=stringPrice
         holder.tipo.text=announcement.get(position).type.toString()
         holder.bed.text=announcement.get(position).rooms.toString()
         if(announcement.get(position).wifi==true){
@@ -34,9 +43,26 @@ class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<
 
 
 
-//        holder.button.setOnClickListener{
-//            Log.d("teste", "funciona"+position)
-//        }
+        holder.button.setOnClickListener{it->
+            Log.d("teste", "teste" +announcement.get(position)._id)
+            val request = ServiceBuilder.buildService(EndPoints::class.java)
+            val call = request.deleteAnnouncement(announcement.get(position)._id)
+            call.enqueue(object : Callback<DefaultResponse> {
+                @RequiresApi(Build.VERSION_CODES.O)
+                override fun onResponse(
+                    call: Call<DefaultResponse>,
+                    response: Response<DefaultResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val c = response.body()!!
+                        (it.getContext() as Activity).finish()
+                    }
+                }
+                override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                    Log.d("teste",t.toString())
+                }
+            })
+        }
     }
 
     override fun getItemCount(): Int {
@@ -47,7 +73,7 @@ class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 //        var nomeText: TextView
         var localizacao: TextView
-//        var button: Button
+        var button: ImageButton
         var tipo :TextView
         var preco:TextView
         var contacto:TextView
@@ -60,7 +86,7 @@ class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<
 //            nomeText = itemView.findViewById(R.id.textView)
             localizacao = itemView.findViewById(R.id.localizacao)
 
-//            button = itemView.findViewById(R.id.button)
+           button = itemView.findViewById(R.id.imageButton)
             tipo= itemView.findViewById(R.id.tipo)
             preco=itemView.findViewById(R.id.preco)
             contacto=itemView.findViewById(R.id.contacto)

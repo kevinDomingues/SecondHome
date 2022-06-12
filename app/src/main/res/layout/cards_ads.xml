@@ -39,7 +39,7 @@
             android:id="@+id/localizacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="30dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="TextView" />
@@ -101,7 +101,7 @@
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="34dp"
-            android:layout_height="24dp"
+            android:layout_height="20dp"
             android:layout_gravity="bottom"
             android:layout_marginLeft="92dp"
             android:layout_marginBottom="12dp"
@@ -136,6 +136,22 @@
             android:background="@color/lightGray"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/icon_trash" />
+
+        <ImageView
+            android:id="@+id/gps"
+            android:layout_width="17dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="14dp"
+            app:srcCompat="@drawable/icon_gps" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="19dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginLeft="280dp"
+            app:srcCompat="@drawable/icon_area" />
 
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
