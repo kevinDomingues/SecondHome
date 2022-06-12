@@ -4,7 +4,7 @@ import java.util.*
 
 data class Announcement (
     val idUser: String,
-    val type: Number,
+    val type: Int,
     val typology: Number,
     val netArea: Number,
     val bathrooms: Number,
@@ -15,5 +15,7 @@ data class Announcement (
     val accessibilty:Boolean,
     val wifi:Boolean,
     val rooms : Int,
-    val _id:String
+    val _id:String,
+    val contact:String,
+    val name:String
 )

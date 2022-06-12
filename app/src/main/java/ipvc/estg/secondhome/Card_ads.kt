@@ -16,13 +16,13 @@ import ipvc.estg.secondhome.models.DefaultResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.POST
 
 
 class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<Card_ads.ViewHolder>() {
 
     var size=c.size;
     var announcement=c
-    var token=userToken
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Card_ads.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.cards_ads, parent, false)
@@ -31,16 +31,28 @@ class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: Card_ads.ViewHolder, position: Int) {
         var stringPrice=announcement.get(position).price.toString()+'$'
+        holder.nomeText.text=announcement.get(position).name
         holder.localizacao.text = announcement.get(position).location
         holder.area.text=announcement.get(position).netArea.toString()
         holder.bathroom.text=announcement.get(position).bathrooms.toString()
         holder.preco.text=stringPrice
-        holder.tipo.text=announcement.get(position).type.toString()
+
+        if(announcement.get(position).type==1){
+            holder.tipo.text="Apartamento"
+        }else if(  announcement.get(position).type==2){
+            holder.tipo.text="Casa"
+        }else{
+            holder.tipo.text="Quarto"
+        }
+
         holder.bed.text=announcement.get(position).rooms.toString()
+        holder.contacto.text=announcement.get(position).contact
         if(announcement.get(position).wifi==true){
             holder.wifi.visibility=View.VISIBLE
         }
-
+        if(announcement.get(position).accessibilty==true){
+            holder.accesibility.visibility=View.VISIBLE
+        }
 
 
         holder.button.setOnClickListener{it->
@@ -71,7 +83,7 @@ class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        var nomeText: TextView
+        var nomeText: TextView
         var localizacao: TextView
         var button: ImageButton
         var tipo :TextView
@@ -81,9 +93,10 @@ class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<
         var bathroom:TextView
         var area:TextView
         var wifi:ImageView
+        var accesibility:ImageView
 
         init {
-//            nomeText = itemView.findViewById(R.id.textView)
+            nomeText = itemView.findViewById(R.id.textView)
             localizacao = itemView.findViewById(R.id.localizacao)
 
            button = itemView.findViewById(R.id.imageButton)
@@ -94,6 +107,8 @@ class Card_ads(userToken: String, c: List<Announcement>) : RecyclerView.Adapter<
             bathroom=itemView.findViewById(R.id.textView10)
             area=itemView.findViewById(R.id.textView11)
             wifi=itemView.findViewById(R.id.imageView5)
+            accesibility=itemView.findViewById(R.id.imageView7)
+
         }
     }
 

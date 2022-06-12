@@ -30,10 +30,18 @@
     <FrameLayout
         android:layout_width="412dp"
         android:layout_height="126dp"
-        android:background="@color/lightGray"
+        android:background="#CDCBCB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="50dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="55dp"
+            app:srcCompat="@drawable/phone" />
 
         <TextView
             android:id="@+id/localizacao"
@@ -84,8 +92,7 @@
             android:layout_width="44dp"
             android:layout_height="25dp"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="22dp"
-
+            android:layout_marginLeft="25dp"
             android:layout_marginBottom="12dp"
             app:srcCompat="@drawable/icon_bed" />
 
@@ -101,7 +108,7 @@
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="34dp"
-            android:layout_height="20dp"
+            android:layout_height="25dp"
             android:layout_gravity="bottom"
             android:layout_marginLeft="92dp"
             android:layout_marginBottom="12dp"
@@ -109,13 +116,23 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="22dp"
-            android:layout_height="23dp"
+            android:layout_width="21dp"
+            android:layout_height="25dp"
             android:layout_gravity="bottom"
             android:layout_marginLeft="200dp"
             android:layout_marginBottom="12dp"
             android:visibility="invisible"
             app:srcCompat="@drawable/icon_wireless" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="21dp"
+            android:layout_height="25dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="160dp"
+            android:layout_marginBottom="12dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/deficient" />
 
         <TextView
             android:id="@+id/textView11"
@@ -128,8 +145,8 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="26dp"
-            android:layout_height="31dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             android:layout_gravity="bottom"
             android:layout_marginLeft="360dp"
             android:layout_marginBottom="12dp"
@@ -148,10 +165,12 @@
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="19dp"
-            android:layout_height="25dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="275dp"
             android:layout_marginTop="88dp"
-            android:layout_marginLeft="280dp"
             app:srcCompat="@drawable/icon_area" />
+
+
 
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
