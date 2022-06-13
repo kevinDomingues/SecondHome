@@ -7,7 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ipvc.estg.secondhome.LineAdapter.LineAdapter
+import ipvc.estg.secondhome.LineAdapter.MyAdsLineAdapter
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.Advertisements

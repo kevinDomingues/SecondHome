@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView
 
 
 class MainPage : AppCompatActivity() {
+  
   private lateinit var appBarConfiguration: AppBarConfiguration
   lateinit var toggle: ActionBarDrawerToggle
   private lateinit var drawerLayout: DrawerLayout
@@ -30,6 +31,7 @@ class MainPage : AppCompatActivity() {
     val insertAds = InsertAds()
     val yourAds = YourAds()
     val search = Search()
+    val help = Help()
 
     // Call findViewById on the DrawerLayout
     drawerLayout = findViewById(R.id.drawerLayout)
@@ -85,6 +87,14 @@ class MainPage : AppCompatActivity() {
         R.id.menu_search -> {
           supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment, search)
+            commit()
+          }
+//                    Toast.makeText(this, "InsertAds", Toast.LENGTH_SHORT).show()
+          true
+        }
+        R.id.menu_help -> {
+          supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, help)
             commit()
           }
 //                    Toast.makeText(this, "InsertAds", Toast.LENGTH_SHORT).show()

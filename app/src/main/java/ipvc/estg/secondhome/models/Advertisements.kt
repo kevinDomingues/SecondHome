@@ -14,6 +14,7 @@ data class Advertisements(
   val lng: Double,
   val constructionYear: Int,
   val accessibilty: Boolean,
+  val wifi: Boolean,
   val email: String,
   val contact: String,
   val images: String,

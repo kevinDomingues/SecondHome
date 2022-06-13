@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 import ipvc.estg.secondhome.Favorites
 import ipvc.estg.secondhome.MainPage
@@ -18,6 +19,10 @@ import ipvc.estg.secondhome.PARAM_NAME
 import ipvc.estg.secondhome.R
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
+import ipvc.estg.secondhome.PARAM_NAME
+import ipvc.estg.secondhome.R
+import ipvc.estg.secondhome.Results
+import ipvc.estg.secondhome.ViewAds
 import ipvc.estg.secondhome.models.Advertisements
 import ipvc.estg.secondhome.models.DefaultResponse
 import ipvc.estg.secondhome.models.User
@@ -29,9 +34,9 @@ import retrofit2.Response
 
 class LineAdapter(val list: ArrayList<Advertisements>, val token: String):RecyclerView.Adapter<LineViewHolder>(){
 
-  private lateinit var context: Context
-
   lateinit var sharedPreferences: SharedPreferences
+  private lateinit var context: Context;
+
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LineViewHolder {
 
     val itemView = LayoutInflater
@@ -89,6 +94,13 @@ class LineAdapter(val list: ArrayList<Advertisements>, val token: String):Recycl
         })
     }
 
+
+    holder.card.setOnClickListener {
+      val intent = Intent(context, ViewAds::class.java).apply {
+        putExtra(PARAM_NAME, currentPlace._id)
+      }
+      context.startActivity(intent)
+    }
   }
 
   fun add(newAd: Advertisements) {
@@ -107,4 +119,6 @@ class LineAdapter(val list: ArrayList<Advertisements>, val token: String):Recycl
     val addFav : AppCompatButton = itemView.addFav
     val location = itemView.location
     val accessibilty = itemView.accessibilty
+    val card: MaterialCardView = itemView.card
   }
+

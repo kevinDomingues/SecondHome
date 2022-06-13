@@ -34,14 +34,14 @@
     <string name="menu_yourAds">Meus anúncios</string>
     <string name="open">Abrir</string>
     <string name="close">Fechar</string>
-  <string name="price_value">Até</string>
-  <string name="date">dd/mm/aa</string>
-  <string name="periodOfTime">Período de tempo</string>
+    <string name="price_value">Até</string>
+    <string name="date">dd/mm/aa</string>
+    <string name="periodOfTime">Período de tempo</string>
     <string name="elevator">Elevador</string>
-  <string name="housing">Tipo de habitação</string>
-  <string name="airconditioning">Ar Condicionado</string>
-  <string name="pool">Piscina</string>
-  <string name="survailence">Vigilância</string>
+    <string name="housing">Tipo de habitação</string>
+    <string name="airconditioning">Ar Condicionado</string>
+    <string name="pool">Piscina</string>
+    <string name="survailence">Vigilância</string>
     <string name="hello_blank_fragment">Olá fragmento vazio</string>
     <string name="to_date_string">Até</string>
     <string name="CheckBoxesTitle">Tem de ter</string>
@@ -79,6 +79,12 @@
     <string name="unsuccessfulAddFav">Erro ao adicionar nos favoritos</string>
     <string name="successfulRemoveFav">Removido dos favoitos</string>
     <string name="unsuccessfulRemoveFav">error removing from favorites</string>
-  <string name="accessibilty">Acessibilidade</string>
-
+    <string name="accessibilty">Acessibilidade</string>
+    <string name="logout">Terminar Sessão</string>
+    <string name="help">Ajuda</string>
+    <string name="need_help">Precisa de ajuda?</string>
+    <string name="contact_us">Entre em contacto connosco por e-mail: secondhome@outlook.pt</string>
+    <string name="wifi">Tem wifi?</string>
+    <string name="delete">Apagar</string>
+    <string name="removed">Removido com sucesso</string>
 </resources>

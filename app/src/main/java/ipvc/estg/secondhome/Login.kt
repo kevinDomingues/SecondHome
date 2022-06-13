@@ -80,8 +80,21 @@ class Login : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
+
+                    if (c.permissionLevel == 1) {
+                        val intent = Intent(this@Login, MainPage::class.java)
+                        startActivity(intent)
+                    } else if (c.permissionLevel == 2){
+                        val intent = android.content.Intent(
+                            this@Login,
+                            Manager::class.java
+                        )
+                        startActivity(intent)
+                    }
+
                     val intent = Intent(this@Login, MainPage::class.java)
                     startActivity(intent)
+
                 }
             }
 
