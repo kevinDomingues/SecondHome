@@ -60,6 +60,9 @@
     <string name="house_type_2">Room</string>
     <string name="constructionYear">Construction Year</string>
     <string name="logout">Logout</string>
+    <string name="help">Help</string>
+    <string name="need_help">Need any help?</string>
+    <string name="contact_us">Contact us by email: secondhome@outlook.pt</string>
     <string name="wifi">Has wifi?</string>
     <string name="delete">Delete</string>
     <string name="removed">Removed with success</string>
