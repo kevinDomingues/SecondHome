@@ -35,6 +35,9 @@ interface EndPoints {
     @GET("user/me")
     fun getUserById(@Header("x-access-token") token: String) : Call<User>
 
+    @GET("favorites/getFavorites")
+    fun getFavoritesFromSession(@Header("x-access-token") token: String) : Call<ArrayList<Advertisements>>
+
     @FormUrlEncoded
     @PUT("user/update")
     fun updateUser(
@@ -81,8 +84,6 @@ interface EndPoints {
         @Part("bathrooms") bathrooms: RequestBody,
         @Part("price") price: RequestBody,
         @Part("location") location: RequestBody,
-        @Part("lat") lat: RequestBody,
-        @Part("lng") lng: RequestBody,
         @Part("constructionYear") constructionYear: RequestBody,
         @Part("accessibility") accessibility: RequestBody,
         @Part("wifi") wifi: RequestBody,
@@ -97,6 +98,13 @@ interface EndPoints {
     @GET("getMyAnnouncements")
     fun getMyAnnouncements(@Header("x-access-token") token: String) : Call<ArrayList<Advertisements>>
 
+    @FormUrlEncoded
+    @POST("favorites/registerFavorite")
+    fun postFavorites(@Header("x-access-token") token: String, @Field("idAnnouncement") id: String) : Call<DefaultResponse>
+
+    @DELETE("favorites/delete/{id}")
+    fun deleteFavorite(@Header("x-access-token") token: String, @Path("id") id: String) : Call<DefaultResponse>
+  
     @GET("announcement/{id}")
     fun getAnnouncementById(@Header("x-access-token") token: String, @Path("id") id: String) : Call<Advertisements>
 

@@ -12,6 +12,10 @@
         <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.249" />
         <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.249" />
         <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.249" />
+        <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.249" />
+        <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.249" />
+        <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/border.xml" value="0.2195" />
         <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/ic_baseline_accessible_24.xml" value="0.137" />
         <entry key="..\:/Escola/3 Ano/Semestre 2/TrabalhoCM/SecondHome/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.249" />
@@ -125,10 +129,6 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-      </map>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

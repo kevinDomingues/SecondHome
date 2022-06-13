@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="350dp">
+
+  <!--- Card -->
+  <com.google.android.material.card.MaterialCardView
+      android:id="@+id/cardfav"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <!--android:layout_marginTop="200dp"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <!-- Media -->
+      <ImageView
+          android:id="@+id/adimagefav"
+          android:layout_width="match_parent"
+          android:layout_height="194dp"
+          android:scaleType="centerCrop" />
+      <!--android:srcCompat="@drawable/ic_banner_foreground.xml"-->
+
+
+      <!-- Descrição do Anuncio  -->
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="#C4C4C4"
+          android:backgroundTint="#C4C4C4"
+          android:orientation="vertical"
+          android:padding="16dp">
+
+        <!-- Titulo  -->
+        <TextView
+            android:id="@+id/adnamefav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Casa do Ernesto"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="#FFFF" />
+
+        <!-- localização  -->
+        <TextView
+          android:id="@+id/locationFav"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="30dp"
+          android:text="localização"
+          android:textAppearance="?attr/textAppearanceBody2"
+          android:textColor="#FFFF" />
+
+        <!-- num de quartos  -->
+        <TextView
+            android:id="@+id/numquartosfav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Num quarto"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="#FFFF" />
+
+        <!-- Contactos  -->
+        <TextView
+            android:id="@+id/contactsfav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="CONTACTOS"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="#FFFF" />
+
+        <!-- Preço  -->
+        <TextView
+            android:id="@+id/precofav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="PREÇO"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="#FFFF" />
+
+
+        <TextView
+          android:id="@+id/accessibiltyFav"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="70dp"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="180dp"
+          android:background="@drawable/ic_baseline_accessible_24"
+          android:textAppearance="?attr/textAppearanceBody2"
+          android:textColor="#FFFF" />
+
+        <!-- Botão para os favoritos-->
+        <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/removeFav"
+          android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/ic_baseline_star_24"
+            android:backgroundTint="#FFff" />
+        <!--        android:id="@+id/btnNextPage" -->
+
+      </RelativeLayout>
+
+    </LinearLayout>
+
+  </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

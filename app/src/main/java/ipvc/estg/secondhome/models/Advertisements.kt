@@ -17,5 +17,6 @@ data class Advertisements(
   val wifi: Boolean,
   val email: String,
   val contact: String,
-  val images: String
+  val images: String,
+  val wifi: Boolean
 )
