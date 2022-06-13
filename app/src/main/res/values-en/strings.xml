@@ -27,7 +27,7 @@
     <string name="successfulLogin">Welcome</string>
     <string name="perfil_titulo">Your account</string>
     <string name="editar">Edit account</string>
-    <string name="update">Update account</string>
+    <string name="update">Update</string>
     <string name="successfullUpdate">"Successfully Updated! "</string>
     <string name="menu_favorities">Favorities</string>
     <string name="menu_insertAds">Insert Ads</string>
@@ -60,4 +60,7 @@
     <string name="house_type_2">Room</string>
     <string name="constructionYear">Construction Year</string>
     <string name="logout">Logout</string>
+    <string name="wifi">Has wifi?</string>
+    <string name="delete">Delete</string>
+    <string name="removed">Removed with success</string>
 </resources>

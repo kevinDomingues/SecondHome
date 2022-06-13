@@ -12,29 +12,28 @@ import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 import ipvc.estg.secondhome.PARAM_NAME
 import ipvc.estg.secondhome.R
-import ipvc.estg.secondhome.Results
-import ipvc.estg.secondhome.ViewAds
+import ipvc.estg.secondhome.UpdateAds
 import ipvc.estg.secondhome.models.Advertisements
 import kotlinx.android.synthetic.main.adline.view.*
 
-class LineAdapter(val list: ArrayList<Advertisements>):RecyclerView.Adapter<LineViewHolder>(){
+class MyAdsLineAdapter(val list: ArrayList<Advertisements>):RecyclerView.Adapter<MyAdsLineViewHolder>(){
 
   private lateinit var context: Context;
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LineViewHolder {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdsLineViewHolder {
     val itemView = LayoutInflater
       .from(parent.context)
       .inflate(R.layout.adline, parent, false );
 
     context = parent.context
-    return LineViewHolder(itemView)
+    return MyAdsLineViewHolder(itemView)
   }
 
   override fun getItemCount(): Int {
     return list.size
   }
 
-  override fun onBindViewHolder(holder: LineViewHolder, position: Int) {
+  override fun onBindViewHolder(holder: MyAdsLineViewHolder, position: Int) {
     val currentPlace = list[position]
 
     if(!currentPlace.images.isNullOrEmpty()){
@@ -54,7 +53,7 @@ class LineAdapter(val list: ArrayList<Advertisements>):RecyclerView.Adapter<Line
     holder.rooms.text = currentPlace.rooms.toString()+" "+holder.itemView.getContext().getString(R.string.number_rooms)
 
     holder.card.setOnClickListener {
-      val intent = Intent(context, ViewAds::class.java).apply {
+      val intent = Intent(context, UpdateAds::class.java).apply {
         putExtra(PARAM_NAME, currentPlace._id)
       }
       context.startActivity(intent)
@@ -68,7 +67,7 @@ class LineAdapter(val list: ArrayList<Advertisements>):RecyclerView.Adapter<Line
 
 }
 
-class LineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+class MyAdsLineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
   val adName = itemView.adname
   val contacts = itemView.contacts
   val price = itemView.preco
