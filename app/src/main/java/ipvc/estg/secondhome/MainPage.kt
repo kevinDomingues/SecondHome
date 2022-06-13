@@ -16,6 +16,7 @@ import com.google.android.material.navigation.NavigationView
 
 
 class MainPage : AppCompatActivity() {
+  
   private lateinit var appBarConfiguration: AppBarConfiguration
   lateinit var toggle: ActionBarDrawerToggle
   private lateinit var drawerLayout: DrawerLayout
