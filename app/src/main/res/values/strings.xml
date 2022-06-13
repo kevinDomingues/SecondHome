@@ -76,4 +76,6 @@
     <string name="NameWord">Name</string>
     <string name="wifi">Wifi</string>
     <string name="accessibilty">Accessibility</string>
+  <string name="room">Room</string>
+  <string name="apartment">Apartment</string>
 </resources>

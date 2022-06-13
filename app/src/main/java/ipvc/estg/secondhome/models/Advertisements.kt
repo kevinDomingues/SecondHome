@@ -13,5 +13,6 @@ data class Advertisements(
   val accessibilty: Boolean,
   val email: String,
   val contact: String,
-  val images: String
+  val images: String,
+  val wifi: Boolean
 )
