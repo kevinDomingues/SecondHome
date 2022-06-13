@@ -13,6 +13,7 @@ import ipvc.estg.secondhome.LineAdapterFavs.LineAdapterFavs
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.Advertisements
+import kotlinx.android.synthetic.main.filter_spinner.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,16 +41,23 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
     val checkBoxAccessibility = getView()?.findViewById<CheckBox>(R.id.accessibility)
     val editTextMin = getView()?.findViewById<EditText>(R.id.minPrice)
     val editTextMax = getView()?.findViewById<EditText>(R.id.maxPrice)
+    val checkBoxApartment = getView()?.findViewById<CheckBox>(R.id.apartment)
+    val checkBoxRoom = getView()?.findViewById<CheckBox>(R.id.room)
+
 
     val searchButton = getView()?.findViewById<Button>(R.id.btnSearch)
 
+
+
     var ads : ArrayList<Advertisements> = ArrayList()
+
+    var adsFiltered : ArrayList<Advertisements> = ArrayList()
 
     sharedPreferences = this.requireActivity().getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("token", "empty")
 
     val request = ServiceBuilder.buildService(EndPoints::class.java)
-    val call = request.getFavoritesFromSession(token!!)
+    val call = request.getAnnouncement(token!!)
 
     call.enqueue(object: Callback<ArrayList<Advertisements>> {
       override fun onResponse(
@@ -65,7 +73,6 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
         }
       }
 
-
       override fun onFailure(call: Call<ArrayList<Advertisements>>, t: Throwable) {
         val number = 1
       }
@@ -75,14 +82,14 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.netArea }
       recView?.adapter = LineAdapterFavs(ads)
-      Toast.makeText(this.context, "Ordenar Area Menos", Toast.LENGTH_SHORT).show()
+      Toast.makeText(this.context, "Ordenar Area Mais", Toast.LENGTH_SHORT).show()
     }
 
     llAreaPlusButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortBy { it.netArea }
       recView?.adapter = LineAdapterFavs(ads)
-      Toast.makeText(this.context, "Ordenar Area Mais", Toast.LENGTH_SHORT).show()
+      Toast.makeText(this.context, "Ordenar Area Menos", Toast.LENGTH_SHORT).show()
     }
 
     llNameLessButton?.setOnClickListener{
@@ -113,11 +120,72 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
       Toast.makeText(this.context, "Ordenar Preço Mais", Toast.LENGTH_SHORT).show()
     }
 
-    searchButton?.setOnClickListener{
+    searchButton?.setOnClickListener {
 
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.price }
       recView?.adapter = LineAdapterFavs(ads)
+      if (adsFiltered.isNotEmpty()) {
+        adsFiltered.clear()
+      }
+
+      if (checkBoxWifi!!.isChecked) {
+        for (a in ads) {
+          if (a.wifi) {
+            adsFiltered.add(a)
+          }
+        }
+        recView?.adapter = LineAdapterFavs(adsFiltered)
+      } else if (checkBoxAccessibility!!.isChecked) {
+        if (adsFiltered.isNotEmpty()) {
+          adsFiltered.clear()
+        }
+        for (a in ads) {
+          if (a.accessibilty) {
+            adsFiltered.add(a)
+          }
+        }
+        recView?.adapter = LineAdapterFavs(adsFiltered)
+      } else if (checkBoxWifi!!.isChecked && checkBoxAccessibility!!.isChecked) {
+        if (adsFiltered.isNotEmpty()) {
+          adsFiltered.clear()
+        }
+        for (a in ads) {
+          if (a.wifi && a.accessibilty) {
+            adsFiltered.add(a)
+          }
+        }
+        recView?.adapter = LineAdapterFavs(adsFiltered)
+      } else if (editTextMin!!.length()!=0 && editTextMax!!.length()!=0){
+        for (a in ads) {
+          if(a.price >= editTextMin?.text.toString().toInt() && a.price <= editTextMax?.text.toString().toInt())
+            adsFiltered.add(a)
+        }
+        recView?.adapter = LineAdapterFavs(adsFiltered)
+      } else if (checkBoxApartment!!.isChecked){
+        if (adsFiltered.isNotEmpty()) {
+          adsFiltered.clear()
+        }
+        for (a in ads) {
+          if (a.type == 1) {
+            adsFiltered.add(a)
+          }
+        }
+        recView?.adapter = LineAdapterFavs(adsFiltered)
+      } else if (checkBoxRoom!!.isChecked){
+        if (adsFiltered.isNotEmpty()) {
+          adsFiltered.clear()
+        }
+        for (a in ads) {
+          if (a.type == 2) {
+            adsFiltered.add(a)
+          }
+        }
+        recView?.adapter = LineAdapterFavs(adsFiltered)
+      }
+      else {
+        recView?.adapter = LineAdapterFavs(ads)
+      }
     }
 
     filterDropdown?.visibility = View.GONE

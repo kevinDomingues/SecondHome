@@ -75,4 +75,7 @@
     <string name="distance">Distance</string>
     <string name="NameWord">Name</string>
     <string name="wifi">Wifi</string>
+    <string name="accessibilty">Acessibilidade</string>
+  <string name="room">Room</string>
+  <string name="apartment">Apartment</string>
 </resources>
