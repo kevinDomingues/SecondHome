@@ -46,7 +46,7 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
-  
+
     @FormUrlEncoded
     @POST("evaluation/createEvaluation")
     fun sendEvaluation(
@@ -64,6 +64,8 @@ interface EndPoints {
         @Part("bathrooms") bathrooms: RequestBody,
         @Part("price") price: RequestBody,
         @Part("location") location: RequestBody,
+        @Part("lat") lat: RequestBody,
+        @Part("lng") lng: RequestBody,
         @Part("constructionYear") constructionYear: RequestBody,
         @Part("accessibility") accessibility: RequestBody,
         @Part("email") email: RequestBody,

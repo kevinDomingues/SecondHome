@@ -44,8 +44,8 @@ class LineAdapter(val list: ArrayList<Advertisements>):RecyclerView.Adapter<Line
     holder.rooms.text = currentPlace.rooms.toString()+" "+holder.itemView.getContext().getString(R.string.number_rooms)
   }
 
-  fun add(newhabitacoes: Advertisements) {
-    list.add(newhabitacoes)
+  fun add(newAd: Advertisements) {
+    list.add(newAd)
     notifyDataSetChanged()
   }
 

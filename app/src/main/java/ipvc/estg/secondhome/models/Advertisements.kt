@@ -9,6 +9,8 @@ data class Advertisements(
   val bathrooms: Int,
   val price: Int,
   val location: String,
+  val lat: Double,
+  val lng: Double,
   val constructionYear: Int,
   val accessibilty: Boolean,
   val email: String,

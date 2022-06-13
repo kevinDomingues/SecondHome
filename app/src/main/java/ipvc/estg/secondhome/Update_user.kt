@@ -50,7 +50,6 @@ class Update_user : AppCompatActivity() {
         val day = c.get(Calendar.DAY_OF_MONTH)
         birthDayText.setText("" + day + "/" + month + "/" + year)
 
-
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getUserById(token!!)
 
@@ -75,7 +74,7 @@ class Update_user : AppCompatActivity() {
         })
 
         backButton.setOnClickListener {
-            val intent = Intent(this, MainPage::class.java)
+            val intent = Intent(this, Profile::class.java)
             startActivity(intent)
         }
 
@@ -123,10 +122,8 @@ class Update_user : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
             updateUser(email, name, username, birthdayDate, contact.toInt(), token!!)
         }
-
 
     }
 
@@ -188,7 +185,7 @@ class Update_user : AppCompatActivity() {
                     val c: DefaultResponse = response.body()!!
                     Toast.makeText(this@Update_user, R.string.successfullUpdate, Toast.LENGTH_SHORT)
                         .show()
-                    val intent = Intent(this@Update_user, Login::class.java)
+                    val intent = Intent(this@Update_user, Profile::class.java)
                     startActivity(intent)
                 }
             }
