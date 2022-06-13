@@ -1,6 +1,7 @@
 package ipvc.estg.secondhome.models
 
 data class Advertisements(
+  val _id: String,
   val idUser: String,
   val name: String,
   val type: Int,
@@ -15,5 +16,6 @@ data class Advertisements(
   val accessibilty: Boolean,
   val email: String,
   val contact: String,
-  val images: String
+  val images: String,
+  val wifi: Boolean
 )

@@ -84,30 +84,30 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rlDistance"
+        android:id="@+id/rlName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rlPrice">
 
         <TextView
-            android:id="@+id/distance"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:text="@string/distance"
+            android:text="@string/NameWord"
             android:textColor="@color/lightGray"
             android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/distance"
+            android:layout_below="@id/name"
             android:layout_centerHorizontal="true">
 
             <LinearLayout
-                android:id="@+id/llDistancePlus"
+                android:id="@+id/llNamePlus"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@drawable/gradient_spinner">
@@ -126,7 +126,7 @@
                 android:textAlignment="center" />
 
             <LinearLayout
-                android:id="@+id/llDistanceLess"
+                android:id="@+id/llNameLess"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@drawable/gradient_spinner">
@@ -146,7 +146,7 @@
         android:id="@+id/rlArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rlDistance">
+        android:layout_below="@id/rlName">
 
         <TextView
             android:id="@+id/area"
@@ -166,7 +166,7 @@
             android:layout_centerHorizontal="true">
 
             <LinearLayout
-                android:id="@+id/llAreaPlus"
+                android:id="@+id/llAreaLess"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@drawable/gradient_spinner">
@@ -185,7 +185,7 @@
                 android:textAlignment="center" />
 
             <LinearLayout
-                android:id="@+id/llAreaLess"
+                android:id="@+id/llAreaPlus"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@drawable/gradient_spinner">

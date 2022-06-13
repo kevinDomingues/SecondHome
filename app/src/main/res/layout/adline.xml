@@ -41,6 +41,18 @@
           android:textAppearance="?attr/textAppearanceHeadline6"
           android:textColor="#FFFF" />
 
+        <!-- localização  -->
+        <TextView
+          android:id="@+id/location"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="30dp"
+          android:text="localização"
+          android:textAppearance="?attr/textAppearanceBody2"
+          android:textColor="#FFFF" />
+
+
         <!-- num de quartos  -->
         <TextView
           android:id="@+id/numquartos"
@@ -73,8 +85,20 @@
           android:textAppearance="?attr/textAppearanceBody2"
           android:textColor="#FFFF" />
 
+        <TextView
+          android:id="@+id/accessibilty"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="70dp"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="180dp"
+          android:background="@drawable/ic_baseline_accessible_24"
+          android:textAppearance="?attr/textAppearanceBody2"
+          android:textColor="#FFFF" />
+
         <!-- Botão para os favoritos-->
         <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/addFav"
           android:layout_width="30dp"
           android:layout_height="30dp"
           android:layout_marginLeft="300dp"

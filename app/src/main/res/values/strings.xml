@@ -73,4 +73,11 @@
     <string name="constructionYear">Construction Year</string>
     <string name="order_by">Order by:</string>
     <string name="distance">Distance</string>
+    <string name="NameWord">Name</string>
+    <string name="wifi">Wifi</string>
+    <string name="accessibilty">Accessibility</string>
+    <string name="successfulAddFav">Added to favorites</string>
+    <string name="unsuccessfulAddFav">Error adding to favorites</string>
+    <string name="successfulRemoveFav">Added to favorites</string>
+    <string name="unsuccessfulRemoveFav">Error removing from favorites</string>
 </resources>

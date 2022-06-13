@@ -26,7 +26,7 @@ class YourAds : Fragment(R.layout.fragment_your_ads) {
         val token = sharedPreferences.getString("token", "empty")
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getMyAnnouncements(token!!)
+        val call = request.getAnnouncement(token!!)
 
         call.enqueue(object: Callback<ArrayList<Advertisements>> {
             override fun onResponse(
@@ -36,7 +36,7 @@ class YourAds : Fragment(R.layout.fragment_your_ads) {
                 if(response.isSuccessful){
                     val recView = getView()?.findViewById<RecyclerView>(R.id.yourAdsRv)
                     recView?.layoutManager = LinearLayoutManager(this@YourAds.context)
-                    recView?.adapter = LineAdapter(response.body()!!)
+                    recView?.adapter = LineAdapter(response.body()!!, token)
                 }
             }
 
