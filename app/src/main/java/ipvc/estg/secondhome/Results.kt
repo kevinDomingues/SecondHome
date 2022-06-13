@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import ipvc.estg.secondhome.LineAdapter.LineAdapter
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.Advertisements
+import kotlinx.android.synthetic.main.activity_resultados.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +37,7 @@ class Results : AppCompatActivity() {
     val backButton = findViewById<ImageView>(R.id.btnBackPage)
 
     backButton.setOnClickListener {
-      val intent = Intent(this, Search::class.java)
+      val intent = Intent(this, MainPage::class.java)
       startActivity(intent)
     }
 
@@ -53,7 +55,7 @@ class Results : AppCompatActivity() {
         if(response.isSuccessful){
           val recView = findViewById<RecyclerView>(R.id.resultadoRv)
           recView.layoutManager = LinearLayoutManager(this@Results)
-          recView.adapter = LineAdapter(response.body()!!)
+          recView.adapter = LineAdapter(response.body()!!, token)
         }
       }
 

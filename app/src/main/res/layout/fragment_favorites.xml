@@ -37,19 +37,18 @@
           android:gravity="center"
           android:layout_centerHorizontal="true"/>
 
-      <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/order"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/etLocation"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_baseline_reorder_24"
-        android:backgroundTint="@color/black" />
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/order"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/etLocation"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_baseline_reorder_24"
+            android:backgroundTint="@color/black" />
 
 
-
-        <androidx.appcompat.widget.AppCompatButton
+          <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/filter"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -66,12 +65,12 @@
             android:layout_height="wrap_content"
             layout="@layout/filter_spinner" />
 
-            <include
-                android:id="@+id/includeOrderSpinner"
-                android:layout_below="@+id/includeSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/order_spinner" />
+          <include
+            android:id="@+id/includeOrderSpinner"
+            layout="@layout/order_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/includeSpinner" />
 
 
         <androidx.appcompat.widget.AppCompatButton

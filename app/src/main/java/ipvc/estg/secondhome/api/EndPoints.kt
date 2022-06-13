@@ -46,7 +46,7 @@ interface EndPoints {
         @Field("birthdayDate") birthdayDate: Date,
         @Field("contact") contact:Int
     ): Call<DefaultResponse>
-  
+
     @FormUrlEncoded
     @POST("evaluation/createEvaluation")
     fun sendEvaluation(
@@ -78,4 +78,10 @@ interface EndPoints {
     @GET("getMyAnnouncements")
     fun getMyAnnouncements(@Header("x-access-token") token: String) : Call<ArrayList<Advertisements>>
 
+    @FormUrlEncoded
+    @POST("favorites/registerFavorite")
+    fun postFavorites(@Header("x-access-token") token: String, @Field("idAnnouncement") id: String) : Call<DefaultResponse>
+
+    @DELETE("favorites/delete/{id}")
+    fun deleteFavorite(@Header("x-access-token") token: String, @Path("id") id: String) : Call<DefaultResponse>
 }

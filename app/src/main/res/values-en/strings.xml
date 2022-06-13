@@ -75,7 +75,9 @@
     <string name="distance">Distance</string>
     <string name="NameWord">Name</string>
     <string name="wifi">Wifi</string>
-    <string name="accessibilty">Acessibilidade</string>
-  <string name="room">Room</string>
-  <string name="apartment">Apartment</string>
+    <string name="successfulAddFav">Added to favorites</string>
+    <string name="unsuccessfulAddFav">Error adding to favorites</string>
+    <string name="successfulRemoveFav">Removed from favorites</string>
+    <string name="unsuccessfulRemoveFav">Error removing from favorites</string>
+  <string name="accessibilty">Accessibility</string>
 </resources>

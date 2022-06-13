@@ -22,6 +22,8 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
 
   lateinit var sharedPreferences: SharedPreferences
 
+  lateinit var token: String
+
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
@@ -54,7 +56,7 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
     var adsFiltered : ArrayList<Advertisements> = ArrayList()
 
     sharedPreferences = this.requireActivity().getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
-    val token = sharedPreferences.getString("token", "empty")
+    token = sharedPreferences.getString("token", "empty")!!
 
     val request = ServiceBuilder.buildService(EndPoints::class.java)
     val call = request.getAnnouncement(token!!)
@@ -68,7 +70,7 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
           val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
           recView?.layoutManager = LinearLayoutManager(this@Favorites.context)
           ads = response.body()!!
-          recView?.adapter = LineAdapterFavs(ads)
+          recView?.adapter = LineAdapterFavs(ads, token)
 
         }
       }
@@ -81,42 +83,42 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
     llAreaLessButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.netArea }
-      recView?.adapter = LineAdapterFavs(ads)
+      recView?.adapter = LineAdapterFavs(ads, token)
       Toast.makeText(this.context, "Ordenar Area Mais", Toast.LENGTH_SHORT).show()
     }
 
     llAreaPlusButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortBy { it.netArea }
-      recView?.adapter = LineAdapterFavs(ads)
+      recView?.adapter = LineAdapterFavs(ads, token)
       Toast.makeText(this.context, "Ordenar Area Menos", Toast.LENGTH_SHORT).show()
     }
 
     llNameLessButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.name }
-      recView?.adapter = LineAdapterFavs(ads)
+      recView?.adapter = LineAdapterFavs(ads, token)
       Toast.makeText(this.context, "Ordenar Nome Menos", Toast.LENGTH_SHORT).show()
     }
 
     llNamePlusButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortBy { it.name }
-      recView?.adapter = LineAdapterFavs(ads)
+      recView?.adapter = LineAdapterFavs(ads, token)
       Toast.makeText(this.context, "Ordenar Nome Mais", Toast.LENGTH_SHORT).show()
     }
 
     llPriceLessButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortBy { it.price }
-      recView?.adapter = LineAdapterFavs(ads)
+      recView?.adapter = LineAdapterFavs(ads, token)
       Toast.makeText(this.context, "Ordenar Preço Menos", Toast.LENGTH_SHORT).show()
     }
 
     llPricePlusButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.price }
-      recView?.adapter = LineAdapterFavs(ads)
+      recView?.adapter = LineAdapterFavs(ads, token)
       Toast.makeText(this.context, "Ordenar Preço Mais", Toast.LENGTH_SHORT).show()
     }
 
@@ -124,7 +126,7 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
 
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.price }
-      recView?.adapter = LineAdapterFavs(ads)
+      recView?.adapter = LineAdapterFavs(ads, token)
       if (adsFiltered.isNotEmpty()) {
         adsFiltered.clear()
       }
@@ -135,7 +137,7 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
             adsFiltered.add(a)
           }
         }
-        recView?.adapter = LineAdapterFavs(adsFiltered)
+        recView?.adapter = LineAdapterFavs(adsFiltered, token)
       } else if (checkBoxAccessibility!!.isChecked) {
         if (adsFiltered.isNotEmpty()) {
           adsFiltered.clear()
@@ -145,7 +147,7 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
             adsFiltered.add(a)
           }
         }
-        recView?.adapter = LineAdapterFavs(adsFiltered)
+        recView?.adapter = LineAdapterFavs(adsFiltered, token)
       } else if (checkBoxWifi!!.isChecked && checkBoxAccessibility!!.isChecked) {
         if (adsFiltered.isNotEmpty()) {
           adsFiltered.clear()
@@ -155,13 +157,13 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
             adsFiltered.add(a)
           }
         }
-        recView?.adapter = LineAdapterFavs(adsFiltered)
+        recView?.adapter = LineAdapterFavs(adsFiltered, token)
       } else if (editTextMin!!.length()!=0 && editTextMax!!.length()!=0){
         for (a in ads) {
           if(a.price >= editTextMin?.text.toString().toInt() && a.price <= editTextMax?.text.toString().toInt())
             adsFiltered.add(a)
         }
-        recView?.adapter = LineAdapterFavs(adsFiltered)
+        recView?.adapter = LineAdapterFavs(adsFiltered, token)
       } else if (checkBoxApartment!!.isChecked){
         if (adsFiltered.isNotEmpty()) {
           adsFiltered.clear()
@@ -171,7 +173,7 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
             adsFiltered.add(a)
           }
         }
-        recView?.adapter = LineAdapterFavs(adsFiltered)
+        recView?.adapter = LineAdapterFavs(adsFiltered, token)
       } else if (checkBoxRoom!!.isChecked){
         if (adsFiltered.isNotEmpty()) {
           adsFiltered.clear()
@@ -181,10 +183,10 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
             adsFiltered.add(a)
           }
         }
-        recView?.adapter = LineAdapterFavs(adsFiltered)
+        recView?.adapter = LineAdapterFavs(adsFiltered, token)
       }
       else {
-        recView?.adapter = LineAdapterFavs(ads)
+        recView?.adapter = LineAdapterFavs(ads, token)
       }
     }
 
