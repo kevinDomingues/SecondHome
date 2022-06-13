@@ -9,7 +9,7 @@ object ServiceBuilder {
 
     private val retrofit = Retrofit.Builder()
 
-        .baseUrl("http://192.168.1.93:3000/")
+        .baseUrl("http://192.168.1.108:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()

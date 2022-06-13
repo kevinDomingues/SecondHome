@@ -91,7 +91,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10dp"
             android:layout_below="@id/btnSearch"
-            android:id="@+id/yourAdsRv"
+            android:id="@+id/favoritesRv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
