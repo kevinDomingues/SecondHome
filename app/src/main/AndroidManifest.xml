@@ -33,6 +33,14 @@
             android:exported="false"
             android:theme="@style/Theme.SecondHomeNoActionBar" />
         <activity
+            android:name=".ManagerAds"
+            android:exported="false"
+            android:label="@string/title_activity_manager_ads"
+            android:theme="@style/Theme.SecondHome.NoActionBar" />
+        <activity
+            android:name=".Manager"
+            android:exported="false" />
+        <activity
             android:name=".MainPage"
             android:exported="false" />
         <activity

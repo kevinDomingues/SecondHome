@@ -1,6 +1,8 @@
 package ipvc.estg.secondhome.api
 
+import ipvc.estg.secondhome.models.Announcement
 import ipvc.estg.secondhome.models.DefaultResponse
+import ipvc.estg.secondhome.models.ListUser
 import ipvc.estg.secondhome.models.Evaluation
 import ipvc.estg.secondhome.models.Advertisements
 import ipvc.estg.secondhome.models.User
@@ -24,7 +26,7 @@ interface EndPoints {
     ): Call<DefaultResponse>
 
     @FormUrlEncoded
-    @POST("user/login")
+    @POST("user/loginWeb")
     fun login(
         @Field("username") username:String,
         @Field("password") password: String
@@ -45,6 +47,24 @@ interface EndPoints {
     ): Call<DefaultResponse>
 
     @FormUrlEncoded
+    @POST("user/me")
+    fun me(  @Field ("token") token:String,): Call<User>
+
+    @GET("user/getUsersAndNAnnouncements")
+    fun allUsers(  ): Call<List<User>>
+
+    @FormUrlEncoded
+    @POST("announcement/getAnnouncements")
+    fun annoucements(  @Field ("id") token:String,): Call<List<Announcement>>
+
+    @FormUrlEncoded
+    @POST("announcement/delete")
+    fun deleteAnnouncement(  @Field ("id") id:String): Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("user/deleteUserAdmin")
+    fun deleteUser(  @Field ("id") id:String): Call<DefaultResponse>
+
     @POST("evaluation/createEvaluation")
     fun sendEvaluation(
         @Field("evaluationText") evaluationText:String,
@@ -70,7 +90,6 @@ interface EndPoints {
         @Part("contact") contact: RequestBody,
         @Part("name") name: RequestBody
     ): Call<DefaultResponse>
-
 
     @GET("announcement")
     fun getAnnouncement(@Header("x-access-token") token: String) : Call<ArrayList<Advertisements>>
