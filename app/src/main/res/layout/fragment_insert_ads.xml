@@ -76,6 +76,18 @@
                     />
 
                 <CheckBox
+                    android:id="@+id/insertAddWifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wifi"
+                    android:layout_gravity="center"
+                    android:button="@null"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightGray"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    />
+
+                <CheckBox
                     android:id="@+id/insertAddMobility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
