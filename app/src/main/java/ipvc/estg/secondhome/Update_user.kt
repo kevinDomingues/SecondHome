@@ -4,31 +4,36 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.DefaultResponse
 import ipvc.estg.secondhome.models.User
+import ipvc.estg.secondhome.utils.parseDate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 
-lateinit var sharedPreferences: SharedPreferences
 class Update_user : AppCompatActivity() {
+
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_user)
 
-        sharedPreferences = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("token","0")
+
+        populateUser(token!!)
+
         val backButton = findViewById<Button>(R.id.backArrowUpd)
         val birthDayText = findViewById<EditText>(R.id.birthdayDateUpd)
         val birthDayButton = findViewById<Button>(R.id.birthdayButtonUpd)
@@ -44,13 +49,11 @@ class Update_user : AppCompatActivity() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         birthDayText.setText("" + day + "/" + month + "/" + year)
-        val token = sharedPreference.getString("token","0")
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.me(token!!)
+        val call = request.getUserById(token!!)
 
         call.enqueue(object : Callback<User> {
-            @RequiresApi(Build.VERSION_CODES.O)
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
@@ -70,13 +73,10 @@ class Update_user : AppCompatActivity() {
             }
         })
 
-
         backButton.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, Profile::class.java)
             startActivity(intent)
         }
-
-
 
         birthDayButton.setOnClickListener {
             val dpd = DatePickerDialog(
@@ -97,7 +97,6 @@ class Update_user : AppCompatActivity() {
             val name = editName.text.toString().trim()
             val username = editUsername.text.toString().trim()
             val birthdayDate = birthDayText.text.toString().trim()
-
 
             if (email.isEmpty()) {
                 editEmail.error = getString(R.string.errorEmailEmpty)
@@ -123,11 +122,44 @@ class Update_user : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
-            updateUser(email, name, username, birthdayDate, contact.toInt(),token);
+            updateUser(email, name, username, birthdayDate, contact.toInt(), token!!)
         }
 
+    }
 
+    private fun populateUser(
+        token: String
+    ) {
+        val editEmail = findViewById<EditText>(R.id.email_inputUpd)
+        val editPhoneNumber = findViewById<EditText>(R.id.tlm_inputUpd)
+        val editName = findViewById<EditText>(R.id.name_inputUpd)
+        val editUsername = findViewById<EditText>(R.id.user_inputUpd)
+        val birthDayText = findViewById<EditText>(R.id.birthdayDateUpd)
+
+        val request = ServiceBuilder.buildService(EndPoints::class.java)
+
+        val call = request.getUserById(token)
+
+        call.enqueue(object : Callback<User> {
+            override fun onResponse(
+                call: Call<User>,
+                response: Response<User>
+            ) {
+                if (response.isSuccessful) {
+                    val c: User = response.body()!!
+
+                    editEmail.setText(c.email);
+                    editUsername.setText(c.username)
+                    editName.setText(c.name)
+                    editPhoneNumber.setText(c.contact.toString())
+                    birthDayText.setText(parseDate(c.birthdayDate))
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Toast.makeText(this@Update_user, R.string.errorSignUp, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun updateUser(
@@ -141,9 +173,8 @@ class Update_user : AppCompatActivity() {
         val date = SimpleDateFormat("dd/MM/yyyy").parse(birthDayDate)
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-//        val token = sharedPreferences.getString("token", "0")
 
-        val call = request.updateUser(token, username, name, email, date, contact)
+        val call = request.updateUser(token!!, username, name, email, date, contact)
 
         call.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(
@@ -154,7 +185,7 @@ class Update_user : AppCompatActivity() {
                     val c: DefaultResponse = response.body()!!
                     Toast.makeText(this@Update_user, R.string.successfullUpdate, Toast.LENGTH_SHORT)
                         .show()
-                    val intent = Intent(this@Update_user, MainPage::class.java)
+                    val intent = Intent(this@Update_user, Profile::class.java)
                     startActivity(intent)
                 }
             }
@@ -165,5 +196,4 @@ class Update_user : AppCompatActivity() {
         })
 
     }
-
 }

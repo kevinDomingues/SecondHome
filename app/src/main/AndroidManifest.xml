@@ -3,6 +3,11 @@
     package="ipvc.estg.secondhome">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SecondHome">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD3bXMnSPXwz2hKotpzffslmctRozXdrDs" />
+
+        <activity
+            android:name=".Profile"
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
         <activity
             android:name=".ManagerAds"
             android:exported="false"
@@ -25,16 +39,23 @@
             android:exported="false" />
         <activity
             android:name=".Register"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
         <activity
             android:name=".Login"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
         <activity
             android:name=".Update_user"
+            android:exported="false"
+            android:theme="@style/Theme.SecondHomeNoActionBar"/>
+      <activity
+            android:name=".Results"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.SecondHomeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
