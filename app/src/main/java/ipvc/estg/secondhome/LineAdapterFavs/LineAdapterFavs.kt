@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.adlinefav.view.*
 class LineAdapterFavs(val list: ArrayList<Advertisements>):RecyclerView.Adapter<LineViewHolder>(){
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LineViewHolder {
+
     val itemView = LayoutInflater
       .from(parent.context)
       .inflate(R.layout.adlinefav, parent, false );

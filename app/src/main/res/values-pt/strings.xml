@@ -73,4 +73,6 @@
     <string name="constructionYear">Ano de construção</string>
     <string name="order_by">Ordenar por:</string>
     <string name="distance">Distância</string>
+    <string name="NameWord">Nome</string>
+    <string name="wifi">Wifi</string>
 </resources>
