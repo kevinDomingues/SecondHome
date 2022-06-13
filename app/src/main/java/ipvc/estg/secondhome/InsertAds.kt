@@ -25,7 +25,6 @@ import retrofit2.Response
 import java.io.File
 import java.io.IOException
 
-
 class InsertAds : Fragment(R.layout.fragment_insert_ads) {
 
     val REQUEST_CODE = 200
@@ -115,6 +114,7 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
         val email = getView()?.findViewById<EditText>(R.id.insertAddEmail)
         val contact = getView()?.findViewById<EditText>(R.id.insertAddContact)
         val accessibility = getView()?.findViewById<CheckBox>(R.id.insertAddMobility)
+        val wifi = getView()?.findViewById<CheckBox>(R.id.insertAddWifi)
 
         if (email?.text.isNullOrEmpty()
             || advertisementName?.text.isNullOrEmpty()
@@ -164,6 +164,7 @@ class InsertAds : Fragment(R.layout.fragment_insert_ads) {
             createPartFromString(address.longitude.toString()),
             createPartFromString(constructionYear!!.text.toString().trim()),
             createPartFromString(accessibility!!.isChecked.toString()),
+            createPartFromString(wifi!!.isChecked.toString()),
             createPartFromString(email!!.text.toString().trim()),
             createPartFromString(contact!!.text.toString().trim()),
             createPartFromString(advertisementName!!.text.toString().trim()),

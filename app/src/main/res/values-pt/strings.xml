@@ -27,7 +27,7 @@
     <string name="successfulLogin">Bem-vindo</string>
     <string name="perfil_titulo">A sua conta</string>
     <string name="editar">Editar conta</string>
-    <string name="update">Atualizar conta</string>
+    <string name="update">Atualizar</string>
     <string name="successfullUpdate">Atualizado com sucesso!</string>
     <string name="menu_favorities">Favoritos</string>
     <string name="menu_insertAds">Inserir anúncio</string>
@@ -61,6 +61,9 @@
     <string name="constructionYear">Ano de construção</string>
     <string name="logout">Terminar Sessão</string>
     <string name="help">Ajuda</string>
-  <string name="need_help">Precisa de ajuda?</string>
-  <string name="contact_us">Entre em contacto connosco por e-mail: secondhome@outlook.pt</string>
+    <string name="need_help">Precisa de ajuda?</string>
+    <string name="contact_us">Entre em contacto connosco por e-mail: secondhome@outlook.pt</string>
+    <string name="wifi">Tem wifi?</string>
+    <string name="delete">Apagar</string>
+    <string name="removed">Removido com sucesso</string>
 </resources>
