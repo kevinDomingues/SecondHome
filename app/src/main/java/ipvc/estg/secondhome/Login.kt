@@ -85,16 +85,12 @@ class Login : AppCompatActivity() {
                         val intent = Intent(this@Login, MainPage::class.java)
                         startActivity(intent)
                     } else if (c.permissionLevel == 2){
-                        val intent = android.content.Intent(
+                        val intent = Intent(
                             this@Login,
                             Manager::class.java
                         )
                         startActivity(intent)
                     }
-
-                    val intent = Intent(this@Login, MainPage::class.java)
-                    startActivity(intent)
-
                 }
             }
 

@@ -36,7 +36,7 @@ class YourAds : Fragment(R.layout.fragment_your_ads) {
                 if(response.isSuccessful){
                     val recView = getView()?.findViewById<RecyclerView>(R.id.yourAdsRv)
                     recView?.layoutManager = LinearLayoutManager(this@YourAds.context)
-                    recView?.adapter = LineAdapter(response.body()!!, token)
+                    recView?.adapter = MyAdsLineAdapter(response.body()!!)
                 }
             }
 

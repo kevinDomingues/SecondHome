@@ -17,17 +17,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SecondHome">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD3bXMnSPXwz2hKotpzffslmctRozXdrDs" />
+
+        <activity
+            android:name=".ViewAdOnMap"
+            android:exported="false"
+            android:label="@string/title_activity_view_ad_on_map"
+            android:theme="@style/Theme.SecondHome.NoActionBar"/>
         <activity
             android:name=".UpdateAds"
             android:exported="false" />
         <activity
             android:name=".ViewAds"
             android:exported="false" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD3bXMnSPXwz2hKotpzffslmctRozXdrDs" />
-
         <activity
             android:name=".Profile"
             android:exported="false"

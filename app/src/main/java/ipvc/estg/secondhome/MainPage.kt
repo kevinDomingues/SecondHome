@@ -1,12 +1,15 @@
 package ipvc.estg.secondhome
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -23,6 +26,8 @@ class MainPage : AppCompatActivity() {
   private lateinit var drawerLayout: DrawerLayout
   private lateinit var navView: NavigationView
 
+  lateinit var sharedPreferences : SharedPreferences
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main_page)
@@ -32,6 +37,19 @@ class MainPage : AppCompatActivity() {
     val yourAds = YourAds()
     val search = Search()
     val help = Help()
+
+    val logout = findViewById<Button>(R.id.logout)
+
+    logout.setOnClickListener {
+      val intent = Intent(this@MainPage, Login::class.java)
+      startActivity(intent)
+
+      sharedPreferences = getSharedPreferences("PREFERENCE_AUTH", Context.MODE_PRIVATE)
+      val editor: SharedPreferences.Editor = sharedPreferences.edit()
+      editor.clear()
+      editor.apply()
+      finish()
+    }
 
     // Call findViewById on the DrawerLayout
     drawerLayout = findViewById(R.id.drawerLayout)
@@ -66,7 +84,6 @@ class MainPage : AppCompatActivity() {
             replace(R.id.flFragment, favorites)
             commit()
           }
-          Toast.makeText(this, "Favorites", Toast.LENGTH_SHORT).show()
           true
         }
         R.id.menu_insertAds -> {
@@ -74,7 +91,6 @@ class MainPage : AppCompatActivity() {
             replace(R.id.flFragment, insertAds)
             commit()
           }
-          Toast.makeText(this, "InsertAds", Toast.LENGTH_SHORT).show()
           true
         }
         R.id.menu_Ads -> {
@@ -89,7 +105,6 @@ class MainPage : AppCompatActivity() {
             replace(R.id.flFragment, search)
             commit()
           }
-//                    Toast.makeText(this, "InsertAds", Toast.LENGTH_SHORT).show()
           true
         }
         R.id.menu_help -> {
@@ -97,7 +112,6 @@ class MainPage : AppCompatActivity() {
             replace(R.id.flFragment, help)
             commit()
           }
-//                    Toast.makeText(this, "InsertAds", Toast.LENGTH_SHORT).show()
           true
         }
         else -> {
@@ -121,7 +135,7 @@ class MainPage : AppCompatActivity() {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     return when (item.itemId) {
       R.id.userMenu -> {
-        val intent = Intent(this, Update_user::class.java)
+        val intent = Intent(this, Profile::class.java)
         startActivity(intent)
         true
       }

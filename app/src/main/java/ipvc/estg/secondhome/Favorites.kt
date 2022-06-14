@@ -13,6 +13,7 @@ import ipvc.estg.secondhome.LineAdapterFavs.LineAdapterFavs
 import ipvc.estg.secondhome.api.EndPoints
 import ipvc.estg.secondhome.api.ServiceBuilder
 import ipvc.estg.secondhome.models.Advertisements
+import ipvc.estg.secondhome.models.Announcement
 import kotlinx.android.synthetic.main.filter_spinner.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,8 +50,6 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
 
     val searchButton = getView()?.findViewById<Button>(R.id.btnSearch)
 
-
-
     var ads : ArrayList<Advertisements> = ArrayList()
 
     var adsFiltered : ArrayList<Advertisements> = ArrayList()
@@ -59,7 +58,7 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
     token = sharedPreferences.getString("token", "empty")!!
 
     val request = ServiceBuilder.buildService(EndPoints::class.java)
-    val call = request.getAnnouncement(token!!)
+    val call = request.getFavoritesFromSession(token!!)
 
     call.enqueue(object: Callback<ArrayList<Advertisements>> {
       override fun onResponse(
@@ -71,7 +70,6 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
           recView?.layoutManager = LinearLayoutManager(this@Favorites.context)
           ads = response.body()!!
           recView?.adapter = LineAdapterFavs(ads, token)
-
         }
       }
 
@@ -84,42 +82,36 @@ class Favorites : Fragment(R.layout.fragment_favorites) {
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.netArea }
       recView?.adapter = LineAdapterFavs(ads, token)
-      Toast.makeText(this.context, "Ordenar Area Mais", Toast.LENGTH_SHORT).show()
     }
 
     llAreaPlusButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortBy { it.netArea }
       recView?.adapter = LineAdapterFavs(ads, token)
-      Toast.makeText(this.context, "Ordenar Area Menos", Toast.LENGTH_SHORT).show()
     }
 
     llNameLessButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.name }
       recView?.adapter = LineAdapterFavs(ads, token)
-      Toast.makeText(this.context, "Ordenar Nome Menos", Toast.LENGTH_SHORT).show()
     }
 
     llNamePlusButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortBy { it.name }
       recView?.adapter = LineAdapterFavs(ads, token)
-      Toast.makeText(this.context, "Ordenar Nome Mais", Toast.LENGTH_SHORT).show()
     }
 
     llPriceLessButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortBy { it.price }
       recView?.adapter = LineAdapterFavs(ads, token)
-      Toast.makeText(this.context, "Ordenar Preço Menos", Toast.LENGTH_SHORT).show()
     }
 
     llPricePlusButton?.setOnClickListener{
       val recView = getView()?.findViewById<RecyclerView>(R.id.favoritesRv)
       ads.sortByDescending { it.price }
       recView?.adapter = LineAdapterFavs(ads, token)
-      Toast.makeText(this.context, "Ordenar Preço Mais", Toast.LENGTH_SHORT).show()
     }
 
     searchButton?.setOnClickListener {

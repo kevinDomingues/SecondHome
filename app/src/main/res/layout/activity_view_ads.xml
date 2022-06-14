@@ -143,12 +143,14 @@
                         >
 
                         <ImageView
+                            android:id="@+id/viewAdsAccessibility"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/ic_baseline_accessible_24"
                             />
 
                         <ImageView
+                            android:id="@+id/viewAdsWifi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/ic_baseline_wifi_24"
@@ -192,6 +194,15 @@
                         />
 
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/viewAdsOnMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/viewAdsAreall"
+                    android:layout_marginTop="100dp"
+                    android:text="View on Map"
+                    android:layout_marginBottom="100dp"/>
 
             </RelativeLayout>
 

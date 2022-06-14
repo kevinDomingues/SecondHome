@@ -1,116 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="350dp">
-
-  <!--- Card -->
-  <com.google.android.material.card.MaterialCardView
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:id="@+id/card"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <!--android:layout_marginTop="200dp"-->
-    <LinearLayout
-      android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    >
+
+  <TextView
+      android:id="@+id/adname"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:orientation="vertical">
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="30dp"
+      android:text="Nome Habitaçao"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
-      <!-- Media -->
-      <ImageView
-        android:id="@+id/adimage"
-        android:layout_width="match_parent"
-        android:layout_height="194dp"
-        android:scaleType="centerCrop" />
-      <!--android:srcCompat="@drawable/ic_banner_foreground.xml"-->
+  <ImageView
+      android:id="@+id/adimage"
+      android:layout_width="305dp"
+      android:layout_height="198dp"
+      android:layout_marginTop="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/adname"
+      android:src="@drawable/ic_main_logo"
 
+      />
 
-      <!-- Descrição do Anuncio  -->
-      <RelativeLayout
-        android:layout_width="match_parent"
+  <FrameLayout
+      android:layout_width="412dp"
+      android:layout_height="126dp"
+      android:background="#CDCBCB"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/adimage">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="55dp"
+        app:srcCompat="@drawable/phone" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#C4C4C4"
-        android:backgroundTint="#C4C4C4"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView" />
 
-        <!-- Titulo  -->
-        <TextView
-          android:id="@+id/adname"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Casa do Ernesto"
-          android:textAppearance="?attr/textAppearanceHeadline6"
-          android:textColor="#FFFF" />
+    <TextView
+        android:id="@+id/preco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView" />
 
-        <!-- localização  -->
-        <TextView
-          android:id="@+id/location"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentRight="true"
-          android:layout_marginRight="30dp"
-          android:text="localização"
-          android:textAppearance="?attr/textAppearanceBody2"
-          android:textColor="#FFFF" />
+    <TextView
+        android:id="@+id/tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/numquartos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="5" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="44dp"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="12dp"
+        app:srcCompat="@drawable/icon_bed" />
+
+    <TextView
+        android:id="@+id/numbathrooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="80dp"
+        android:layout_marginBottom="16dp"
+        android:text="3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="34dp"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="92dp"
+        android:layout_marginBottom="12dp"
+        app:srcCompat="@drawable/icon_bathroom" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="21dp"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/icon_wireless" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="21dp"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="160dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/deficient" />
+
+    <TextView
+        android:id="@+id/area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="300dp"
+        android:layout_marginBottom="16dp"
+        android:text="area" />
+
+    <ImageButton
+        android:id="@+id/addFav"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="360dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/lightGray"
+        android:backgroundTint="#CDCBCB"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_baseline_star_24" />
+
+    <ImageView
+        android:id="@+id/gps"
+        android:layout_width="17dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="14dp"
+        app:srcCompat="@drawable/icon_gps" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="19dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="88dp"
+        app:srcCompat="@drawable/icon_area" />
 
 
-        <!-- num de quartos  -->
-        <TextView
-          android:id="@+id/numquartos"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentRight="true"
-          android:layout_marginRight="30dp"
-          android:layout_marginTop="30dp"
-          android:text="Num quarto"
-          android:textAppearance="?attr/textAppearanceBody2"
-          android:textColor="#FFFF" />
 
-        <!-- Contactos  -->
-        <TextView
-          android:id="@+id/contacts"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="35dp"
-          android:text="CONTACTOS"
-          android:textAppearance="?attr/textAppearanceBody2"
-          android:textColor="#FFFF" />
-
-        <!-- Preço  -->
-        <TextView
-          android:id="@+id/preco"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="70dp"
-          android:text="PREÇO"
-          android:textAppearance="?attr/textAppearanceBody2"
-          android:textColor="#FFFF" />
-
-        <TextView
-          android:id="@+id/accessibilty"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="70dp"
-          android:layout_alignParentRight="true"
-          android:layout_marginRight="180dp"
-          android:background="@drawable/ic_baseline_accessible_24"
-          android:textAppearance="?attr/textAppearanceBody2"
-          android:textColor="#FFFF" />
-
-        <!-- Botão para os favoritos-->
-        <androidx.appcompat.widget.AppCompatButton
-          android:id="@+id/addFav"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:layout_marginLeft="300dp"
-          android:layout_marginTop="70dp"
-          android:background="@drawable/ic_baseline_star_24"
-          android:backgroundTint="#FFff" />
-        <!--        android:id="@+id/btnNextPage" -->
-
-      </RelativeLayout>
-
-    </LinearLayout>
-
-  </com.google.android.material.card.MaterialCardView>
-
-</RelativeLayout>
+  </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

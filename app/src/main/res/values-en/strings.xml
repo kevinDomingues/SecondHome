@@ -42,7 +42,6 @@
     <string name="airconditioning">Air Conditioning</string>
     <string name="pool">Pool</string>
     <string name="survailence">Survailence</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="to_date_string">To</string>
     <string name="CheckBoxesTitle">Need to have</string>
     <string name="typeOfAccommodationTitle">Type Of Accommodation</string>
@@ -74,7 +73,6 @@
     <string name="order_by">Order by:</string>
     <string name="distance">Distance</string>
     <string name="NameWord">Name</string>
-    <string name="wifi">Wifi</string>
     <string name="successfulAddFav">Added to favorites</string>
     <string name="unsuccessfulAddFav">Error adding to favorites</string>
     <string name="successfulRemoveFav">Removed from favorites</string>
@@ -87,4 +85,17 @@
     <string name="wifi">Has wifi?</string>
     <string name="delete">Delete</string>
     <string name="removed">Removed with success</string>
+    <string name="title_activity_manager_ads">Manager Ads</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="total_de">total of</string>
+    <string name="anuncios">ads</string>
+    <string name="apartment">Apartment</string>
+    <string name="room">Room</string>
+    <string name="location_school">Location/University</string>
 </resources>

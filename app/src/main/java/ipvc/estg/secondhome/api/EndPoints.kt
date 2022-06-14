@@ -78,18 +78,20 @@ interface EndPoints {
     @POST("announcement/registerAnnouncement")
     fun insertAdd( @Header("x-access-token") token: String,
 //        @Part file : List<MultipartBody.Part>,
-        @Part("type") type: RequestBody,
-        @Part("netArea") netArea: RequestBody,
-        @Part("rooms") rooms: RequestBody,
-        @Part("bathrooms") bathrooms: RequestBody,
-        @Part("price") price: RequestBody,
-        @Part("location") location: RequestBody,
-        @Part("constructionYear") constructionYear: RequestBody,
-        @Part("accessibility") accessibility: RequestBody,
-        @Part("wifi") wifi: RequestBody,
-        @Part("email") email: RequestBody,
-        @Part("contact") contact: RequestBody,
-        @Part("name") name: RequestBody
+       @Part("type") type: RequestBody,
+       @Part("netArea") netArea: RequestBody,
+       @Part("rooms") rooms: RequestBody,
+       @Part("bathrooms") bathrooms: RequestBody,
+       @Part("price") price: RequestBody,
+       @Part("location") location: RequestBody,
+       @Part("lat") lat: RequestBody,
+       @Part("lng") lng: RequestBody,
+       @Part("constructionYear") constructionYear: RequestBody,
+       @Part("accessibility") accessibility: RequestBody,
+       @Part("wifi") wifi: RequestBody,
+       @Part("email") email: RequestBody,
+       @Part("contact") contact: RequestBody,
+       @Part("name") name: RequestBody
     ): Call<DefaultResponse>
 
     @GET("announcement")

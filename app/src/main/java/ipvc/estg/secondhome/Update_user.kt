@@ -64,7 +64,7 @@ class Update_user : AppCompatActivity() {
                     editUsername.setText(c.username)
                     editName.setText(c.name)
                     editPhoneNumber.setText(c.contact.toString(), TextView.BufferType.EDITABLE)
-                    birthDayText.setText(c.birthdayDate)
+                    birthDayText.setText(parseDate(c.birthdayDate))
                 }
             }
 
