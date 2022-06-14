@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlOrderSpinner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkwhite"
+    android:padding="20dp">
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#BCBCBC"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/orderBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/order_by"
+        android:textColor="@color/lightGray"
+        android:textSize="23sp"
+        android:layout_below="@id/separator"/>
+
+    <RelativeLayout
+        android:id="@+id/rlPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/orderBy">
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/price"
+            android:textColor="@color/lightGray"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/llPricePlus"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/gradient_spinner">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:layout_weight="2"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:id="@+id/llPriceLess"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/gradient_spinner">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_up_24" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlPrice">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/NameWord"
+            android:textColor="@color/lightGray"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/llNamePlus"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/gradient_spinner">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:layout_weight="2"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:id="@+id/llNameLess"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/gradient_spinner">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_up_24" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlName">
+
+        <TextView
+            android:id="@+id/area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/area"
+            android:textColor="@color/lightGray"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/area"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/llAreaLess"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/gradient_spinner">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:layout_weight="2"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:id="@+id/llAreaPlus"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/gradient_spinner">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_up_24" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <!--
+      <View
+          android:layout_marginTop="7dp"
+          android:layout_below="@id/rlTypeOfAccommodation"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="@android:color/darker_gray"/>
+    -->
+
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_favorities"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/menu_favorities" />
+    <item
+        android:id="@+id/menu_insertAds"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menu_insertAds" />
+    <item
+        android:id="@+id/menu_Ads"
+        android:icon="@android:drawable/ic_menu_slideshow"
+        android:title="@string/menu_yourAds" />
+
+    <item
+      android:id="@+id/menu_search"
+      android:icon="@android:drawable/ic_menu_search"
+      android:title="@string/search" />
+    <item
+      android:id="@+id/menu_help"
+      android:icon="@android:drawable/ic_menu_help"
+      android:title="@string/help" />
+
+<!--    <item-->
+<!--        android:id="@+id/miItem1"-->
+<!--        android:title="Item 1"/>-->
+
+<!--    <item-->
+<!--        android:id="@+id/miItem2"-->
+<!--        android:title="Item 2"/>-->
+
+<!--    <item-->
+<!--        android:id="@+id/miItem3"-->
+<!--        android:title="Item 3"/>-->
+
+
+</menu>
